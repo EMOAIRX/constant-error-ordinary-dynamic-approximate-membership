@@ -1,0 +1,9 @@
+.DS_Store
+.history/
+__pycache__/
+*.py[cod]
+tmp/
+
+# Local literature copies; use the cited arXiv/DOI sources instead.
+*.pdf
+*.html
