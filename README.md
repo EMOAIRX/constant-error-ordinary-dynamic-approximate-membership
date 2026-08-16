@@ -5,8 +5,48 @@ membership problem left open by Kuszmaul--Liang--Zhou (FOCS 2025).
 
 ## Latest result
 
-The newest proved result is a natural-universe lower bound for filters with
-**bounded source-section influence (BSSI)**.
+The newest structural result is an **operational support-completion and
+avalanche-or-information theorem**.  It applies to the full ordinary model at a
+single replacement cut: arbitrary history dependence, multiple
+representations, nonmonotone queries, ghosts, holonomy, and public-coin
+reliability allocation are all allowed.
+
+For a uniform `t`-set source, a self-contained random suffix, parent full-fiber
+union size `w`, successor transport loss `L`, static support information `A`, and
+suffix-source information `J`, it proves
+
+\[
+t\,\mathbb E\log_2\frac{w}{w-L}
+\le H-A+J.
+\]
+
+Consequently, if
+
+\[
+\Pr[L\ge\theta w]\ge\tau,
+\]
+
+then, in the natural-universe regime with `J=o(t)`,
+
+\[
+H\ge t\left[
+\log_2\frac1\varepsilon
++\tau\log_2\frac1{1-\theta}
+\right]-o(t).
+\]
+
+Thus a constant operational avalanche gives a genuine lower-bound premium
+over the Carter rate without BSSI or source-cover completeness.  The proof's
+infinitesimal support completion accounts for source-invisible operational
+ghosts at vanishing entropy cost while retaining their full-union deficit.
+
+- [Full theorem](./docs/OPERATIONAL_SUPPORT_COMPLETION_AVALANCHE_LOWER_BOUND_2026_08_16.md)
+- [Hostile proof audit](./docs/OPERATIONAL_SUPPORT_COMPLETION_HOSTILE_AUDIT_2026_08_16.md)
+
+## Strongest numerical theorem
+
+The strongest numerical result remains the natural-universe lower bound for
+filters with **bounded source-section influence (BSSI)**.
 
 For an ordinary one-sided dynamic filter with fixed `H`-bit persistent memory,
 free public randomness, pointwise false-positive probability at most
@@ -42,12 +82,13 @@ At half error,
 This is a structural universe-range improvement, not a deeper finite-block
 numerical certificate. The proof uses only the two endpoint pivots.
 
-- [Full theorem](./docs/BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md)
-- [Hostile proof audit](./docs/BOUNDED_SOURCE_SECTION_INFLUENCE_HOSTILE_AUDIT_2026_08_15.md)
+- [BSSI theorem](./docs/BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md)
+- [BSSI hostile audit](./docs/BOUNDED_SOURCE_SECTION_INFLUENCE_HOSTILE_AUDIT_2026_08_15.md)
 
 ## Is this the general ordinary-model solution?
 
-**No.** The theorem is effective and fairly broad, but it is still conditional.
+**No.** The BSSI numerical theorem is effective and fairly broad, but it is
+still conditional.
 
 BSSI permits:
 
@@ -61,10 +102,12 @@ witnesses cover the full operational union and that revealing one fresh suffix
 insertion destroys only bounded expected union mass. We have not proved that
 every low-space ordinary filter satisfies this condition.
 
-Thus the theorem rigorously closes a large structural subclass and identifies
-the remaining obstruction: an unrestricted counterexample must maintain
-unbounded source-section avalanches across many replacement cuts without
-paying equivalent state width or false-positive cost.
+The new support-completion theorem removes source-invisible ghosts as a
+single-cut obstruction: a large avalanche is already paid by excess state
+information.  What remains is the opposite regime.  An unrestricted
+counterexample must maintain small operational avalanches across many
+recurrent replacement cuts without paying equivalent joint response width or
+false-positive cost.
 
 The matching arbitrary-filter lower bound remains open. The main target is a
 replacement-response width theorem, equivalently a stationary causal
