@@ -1,5 +1,13 @@
 # Ordinary dynamic AMQ 的 all-pivot 工作：敌对审计与研究前沿
 
+> **2026-08-16 更新。** 本文 Section 2 找到的 two-sigma-field 缺口后来已由
+> [Batch perspective 与 prefix-mass lemma](./BATCH_PERSPECTIVE_AND_PREFIX_MASS_LEMMA_2026_08_13.md)
+> 的两阶段条件化修复。统一 transport、decoder side information、finite-$b$ 误差和
+> 端点放松的最终复核见
+> [all-pivot closure audit](./ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)。因此
+> $1.6079$ 现在可在 $u/n^2\to\infty$、$f(n)/n\to\infty$ 下作为 ordinary 定理引用；
+> 本文其余“尚未闭合”的文字保留为历史审计记录。
+
 > 日期：2026-08-13。审计对象主要是
 > `EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md` 及其依赖的 full-fiber
 > lifting、batch code 和 KLZ obfuscation interface。本文区分已经严格成立的

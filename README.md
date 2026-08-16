@@ -40,6 +40,7 @@ $$
 | 模型或额外条件 | 半误差下界 | 来源 | 准确地位 |
 |---|---:|---|---|
 | 原始 ordinary 模型，$u/n\to\infty$ | $H\ge n-o(n)$ | 外部文献：Carter 静态基线 | 一般、无条件 |
+| ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge1.6079n-o(n)$ | 本仓库：full-fiber all-pivot converse | 一般、无额外结构假设；比原始模型多用了强宇宙和超线性 horizon 条件 |
 | ordinary 模型，$u/n^2\to\infty$ | $H\ge1.198n-o(n)$ | 本仓库：multicut prefix-union theorem | 一般、无条件；证明只用 fresh insertions，因此也适用于 incremental filters |
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |
 | history-dependent monotone 子类，$u/n\to\infty$ | $H\ge1.1992732344471508\ldots n-o(n)$ | 本仓库对 KLZ Proposition 4.3 的固定误差审计与 AND 推论 | 不是 ordinary nonmonotone 下界 |
@@ -48,6 +49,8 @@ $$
 
 相关文件：
 
+- [$1.6079$ all-pivot theorem](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
+- [$1.6079$ lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
 - [$1.198$ multicut theorem](./docs/MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md)
 - [$1.198$ hostile audit](./docs/MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md)
 - [BSSI natural-universe theorem](./docs/BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md)
@@ -87,11 +90,7 @@ matching lower bound；结合文献中的 fingerprint upper bound，small-error 
 的 first-order optimum 为
 
 $$
-\boxed{
-H^*
-=
-n\log_2(1/\varepsilon)+n\log_2 e+o(n).
-}
+\boxed{H^*=n\log_2(1/\varepsilon)+n\log_2 e+o(n).}
 $$
 
 KLZ 明确把 $\varepsilon^{-1}=\Theta(1)$ 的 tight upper/lower bounds 留作开放
@@ -104,11 +103,49 @@ multiset 的高效动态熵编码上界，但没有给出 constant-error arbitra
 ## 不是当前定理的数字
 
 - $1.13$ 是 Lovett--Porat 文中的 computer-search remark，不是已认证定理。
-- 旧的 $1.6079$ all-pivot 数值依赖尚未闭合的 lifting/interface，不列入当前可信
-  frontier。
+- $1.6079$ 现在只是在 $u/n^2\to\infty$ 且 $f(n)/n\to\infty$ 下的定理；它不是
+  原始 $u/n\to\infty$ 条件下的下界。
 - $2.200611\ldots$ 不能写成任意长历史 fixed-worst-case 上界。
 - $2.287904\ldots$ 不能写成每张随机带都满足的固定空间上界。
 - $2.349083\ldots$ 是上界，不是 ordinary 模型的最优值或下界。
+
+## Research TODO：$1.6079$ all-pivot 路线
+
+已经完成的有限证书是
+
+$$
+C_{10}
+\ge
+1.607987002861718\ldots
+>
+1.6079.
+$$
+
+two-stage partition conditioning、full-fiber common-suffix transport、exact batch code
+和全部 pivots 的统一误差已经重新审计。在
+
+$$
+\frac{u}{n^2}\to\infty,
+\qquad
+\frac{f(n)}n\to\infty
+$$
+
+时，它们把上述凸证书提升为 ordinary、history-dependent、nonmonotone dynamic
+filter 的下界 $H\ge1.6079n-o(n)$。这里没有 BSSI、monotonicity 或 canonical-state
+假设。
+
+真正未完成的是把强宇宙条件降到原始的 $u/n\to\infty$。当前 hard-union transport
+在 suffix witness collision 上支付约 $n^2$ 的损失；已有 avalanche、posterior deficit
+和 rank-volume 引理尚不能把多个 operational parents 的损失统一收费。下一步需要的
+是 simultaneous replacement-response width / transition-overlap 定理，或者一个证明
+这条路线不可能成功的 ordinary transducer 反例。
+
+本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。只有以下任一项
+完成后，才再次更新主结果：
+
+1. 在仅 $u/n\to\infty$ 下得到一般系数严格大于 $1$ 的下界；
+2. 给出 matching lower/upper bound，从而确定某个明确模型的最优一阶常数；
+3. 证明覆盖 all-pivot/transport/posterior 方法的结构性 barrier theorem。
 
 ## 仓库导航
 

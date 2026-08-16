@@ -110,9 +110,26 @@ T_x\cap I(\tau)=\varnothing,
 这里没有偷偷要求 suffix 对整个 fiber 合法。所有不合法 witness 都明确由事件
 `T_x cap I(tau) != emptyset` 支付。
 
-在 KLZ tree 中，条件于 prefix labels、tree shape 和 filter tape，未来 level-`j`
-label 在 `U_j` 中均匀抽取；一个 edge 内无放回只会把单点命中概率改成相同量级
-的有限总体修正。若 suffix 有至多 `Q` 个 insertion positions，则可取有限形式
+这里的条件场必须只包含 cut 前信息，不能包含完整预采样 public labels。正式地，令
+
+\[
+\mathscr F_\ell
+=\sigma(R,\pi,\text{tree shape},
+\text{在 }\sigma_{G_\ell}\text{ 中已经执行的 labels/operations},
+X_1,\ldots,X_\ell).
+\tag{9a}
+\]
+
+它显式排除 rightmost `X_j`（`j>ell`）和尚未遍历的 subtree-edge labels。给定
+`mathscr F_ell` 后，prefix state、load、exact time 和 full fiber 都固定。对每个
+`x in W(G_ell)`，按一个与 KLZ source tree 无关的固定全序选择第一条 witness history；
+于是 `T_x` 是 `mathscr F_ell`-measurable，不读取 future suffix labels。
+
+KLZ 的 relevant `G_ell -> F_r` excursion 完全位于 cut 后尚未遍历的 rightmost
+subtree。未来 level-`j` edge labels 在 `U_j` 中独立抽取，每个 edge 内是无放回的
+ordered tuple；rightmost future batches 同样独立。即使完整 public tree 对通信双方
+可见，概率证明也无需对尚未执行的 labels 条件化。若 suffix 有至多 `Q` 个 insertion
+positions，则逐位置条件化给出有限形式
 
 \[
 \Pr[T_x\cap I(\tau)\ne\varnothing]
@@ -344,4 +361,3 @@ b\log(V)_{\underline m}=n\log V-o(n)
    fixed-error coefficient；
 3. 证明 full-fiber transport inequality 的 extremal structure，并给接近
    everlasting quotient upper bound 的 converse。
-

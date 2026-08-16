@@ -32,6 +32,7 @@ $$
 
 | 条件 | 半误差结论 | 类型 | 文件或来源 |
 |---|---:|---|---|
+| $u/n^2\to\infty$，$f(n)/n\to\infty$，ordinary | $H\ge1.6079n-o(n)$ | **本仓库定理**，无额外结构假设 | [all-pivot theorem](./EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md), [closure audit](./ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md) |
 | $u/n^2\to\infty$，ordinary | $H\ge1.198n-o(n)$ | **本仓库定理**，无额外结构假设 | [multicut theorem](./MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md), [audit](./MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md) |
 | $u/n\to\infty$，BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | **本仓库条件定理** | [theorem](./BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md), [audit](./BOUNDED_SOURCE_SECTION_INFLUENCE_HOSTILE_AUDIT_2026_08_15.md) |
 | $u/n\to\infty$，history-dependent monotone | $H\ge1.1992732344471508\ldots n-o(n)$ | **本仓库对 KLZ 的受限子类推论** | [amplification audit](./AMPLIFICATION_FRONTIER_HOSTILE_AUDIT_2026_08_13.md) |
@@ -144,7 +145,7 @@ filter constant-error lower bound。
 | 数字 | 原因 |
 |---:|---|
 | $1.13$ | Lovett--Porat computer-search remark，不是正式证书 |
-| $1.6079$ | all-pivot 数值证书本身正确，但连接到 ordinary model 的 lifting/interface 未闭合 |
+| $1.6079$ under only $u/n\to\infty$ | 当前定理需要 $u/n^2\to\infty$ 和确定的超线性 horizon；自然宇宙推广仍未闭合 |
 | $1.199273$ ordinary | 只证明于 monotone 子类；ordinary nonmonotone lifting 有 partition-dependence gap |
 | $2.200611$ arbitrary infinite history | 当前只在受限 horizon 或 whp-resource 语义成立 |
 | $2.287904$ fixed-worst-case | 外部 entropy-array theorem 给的是 whp space/time |
