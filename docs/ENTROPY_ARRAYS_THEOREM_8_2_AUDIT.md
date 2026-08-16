@@ -1,6 +1,6 @@
 # Audit of Theorem 8.2 of *Dynamic Entropy-Encoded Arrays*
 
-Source: local HTML copy `entropy_arrays_2608.html` of Blelloch--Hu--Kuszmaul--Li--Zhou, *Dynamic Entropy-Encoded Arrays in \(O(1)\) Time with Nearly Optimal Space*, arXiv:2608.06066. This note audits only the effect of Theorem 8.2 on the constant-error question in KLZ25 Section 6.
+Source: local HTML copy `references/entropy_arrays_2608.html` of Blelloch--Hu--Kuszmaul--Li--Zhou, *Dynamic Entropy-Encoded Arrays in \(O(1)\) Time with Nearly Optimal Space*, arXiv:2608.06066. This note audits only the effect of Theorem 8.2 on the constant-error question in KLZ25 Section 6.
 
 ## Exact statement
 
