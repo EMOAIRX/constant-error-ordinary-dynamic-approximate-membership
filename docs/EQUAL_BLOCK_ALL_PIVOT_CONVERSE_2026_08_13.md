@@ -297,7 +297,8 @@ C_{10}\ge
 half error 下，当前相关 benchmarks 约为：
 
 - uniform fingerprint multiset 的 Shannon/whp rate：`2.287904n`；
-- everlasting binary threshold quotient：`2.349083n`；
+- everlasting cross-block mod-$6$ quotient：`2.34614905664n`；
+- 被改进的 binary threshold quotient：`2.349083n`；
 - exact fingerprint count-vector fixed-length baseline：`2.384500n`。
 
 式 (1) 仍显著低于它们，不存在数值矛盾。不同 upper bounds 的空间语义并不完全

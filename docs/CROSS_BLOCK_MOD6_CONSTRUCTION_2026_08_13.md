@@ -12,7 +12,7 @@
 fixed-state模型中，存在一个canonical additive construction，在half error下使用
 
 \[
-\boxed{2.346149054803\ldots n+o(n)}
+\boxed{2.34614905664n+o(n)}
 \]
 
 bits，严格优于此前binary order-3 threshold quotient的
@@ -232,7 +232,7 @@ R
 z_*=0.453320842862439\ldots.
 \tag{17}
 
-代回式 (15) 得
+代回式 (15) 的 numerical optimum 为
 
 \[
 \boxed{R=2.346149054803345\ldots.}
@@ -240,7 +240,7 @@ z_*=0.453320842862439\ldots.
 
 与旧常数的gap约为 \(0.002934385389796\)，远大于最后显示小数的舍入误差。
 随附的零外部依赖 verifier `scripts/verify_cross_block_mod6_construction.py` 完全使用
-`Fraction`，逐composition枚举式 (5)、(9)、(11)，并用有理Taylor余项认证
+`Fraction`，逐composition枚举式 (5)、(9)、(11)，并用有理Taylor余项定位
 
 \[
 \lambda\in[2.64801769,2.64801770],
@@ -248,12 +248,17 @@ z_*=0.453320842862439\ldots.
 z\in[0.45332084,0.45332085]
 \]
 
-上式 (13)、(16) 的端点符号以及严格区间
+上式 (13)、(16) 的端点符号。用于主定理的 reviewer-safe 结论是固定测试点给出的
+严格上界
 
 \[
-2.34614905208<R<2.34614905664<2.34908.
+R<2.34614905664<2.34908.
 \tag{18a}
 \]
+
+旧版文档曾把 verifier 在一个固定 $z$ 上打印的下端值误写成 $R$ 的严格下界；固定
+测试点只能给 $\inf_z$ 的上界。式 (18) 保留为 numerical location，不作为两侧区间
+证书。
 
 ## 6. Ordinary key API 与 finite (n)
 

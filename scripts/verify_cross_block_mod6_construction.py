@@ -174,11 +174,10 @@ def main():
     print("saddle bracket", float(z_low), float(z_high))
 
     z_test = decimal_fraction("0.453320845")
-    rate_low, rate_high = rate_bounds(lam_low, lam_high, z_test)
-    assert rate_low > decimal_fraction("2.34614")
+    _, rate_high = rate_bounds(lam_low, lam_high, z_test)
     assert rate_high < decimal_fraction("2.34616")
     assert rate_high < decimal_fraction("2.34908")
-    print("certified rate interval", float(rate_low), float(rate_high))
+    print("fixed-test certified rate upper", float(rate_high))
     print("PASS")
 
 

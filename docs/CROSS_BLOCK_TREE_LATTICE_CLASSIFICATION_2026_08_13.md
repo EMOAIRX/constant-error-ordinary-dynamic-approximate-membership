@@ -169,11 +169,13 @@ d=(1,4,10,18,27,36,44,50,53,54,54,\ldots),
 \frac{189}{32768},0,\ldots\right).
 \]
 
-其 half-error rate由已有 interval verifier认证为
+其 half-error numerical rate约为 $2.346149054803$；主 verifier 认证固定测试点上界
 
 \[
-2.34614905208<R_{2+2}<2.34614905664.
+R_{2+2}<2.34614905664.
 \]
+
+固定测试点不能给 $\inf_z$ 的 lower bound，因此旧版显示的下端点不再作为证书。
 
 ### Unbalanced type
 

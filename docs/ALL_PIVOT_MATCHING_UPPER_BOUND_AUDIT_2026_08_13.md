@@ -36,10 +36,21 @@ filter extremizer。要闭环必须加入 fiber thickness/section multiplicity�
 
 ## 2. 已知 ordinary upper bounds
 
-### 2.1 Binary order-3 threshold quotient
+### 2.1 Cross-block mod-$6$ quotient
 
-目前在 KLZ fixed-memory、任意长 history、pointwise FPR模型中最强的显式
-ordinary half-error construction使用：
+目前在 KLZ fixed-memory、任意长 history、pointwise FPR模型中最强的已认证显式
+ordinary half-error construction是 cross-block mod-$6$ quotient。它使用
+
+\[
+H\le2.34614905664n+o(n).
+\]
+
+它在两个 binary order-$3$ children 之间只保存一个 allocation load modulo $6$，
+从而严格改进下面的独立 binary baseline。
+
+### 2.2 被改进的 binary order-$3$ baseline
+
+该 baseline 使用：
 
 - public outer hash 到 blocks；
 - uniform inner bit；
@@ -61,7 +72,7 @@ normal form把所有结构归约为 one-count modulo `q`，而 `q=3` 在 half er
 但该 converse不覆盖 history-dependent multiple representations、cross-block
 quotients或 randomized transitions。
 
-### 2.2 Fingerprint baselines
+### 2.3 Fingerprint baselines
 
 其他相关 rates约为：
 

@@ -17,21 +17,22 @@ n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
-2.349083440193\ldots\,n+o(n).
+2.34614905664\,n+o(n).
 }
 $$
 
 | 方向 | 结论 | 来源 | 状态 |
 |---|---:|---|---|
 | 下界 | $H\ge n-o(n)$ | 外部文献：Carter 型静态 accepted-set 计数下界 | 无条件；目前自然宇宙下的一般下界 |
-| 上界 | $H\le2.349083440193\ldots n+o(n)$ | 本仓库：order-$3$ algebraic threshold quotient | 无条件；任意长历史、无 overflow、固定最坏空间 |
+| 上界 | $H\le2.34614905664n+o(n)$ | 本仓库：cross-block mod-$6$ additive quotient | 无条件；任意长历史、无 overflow、固定最坏空间 |
 
-- [本仓库上界定理](./docs/VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md)
-- [上界 hostile audit](./docs/ALGEBRAIC_THRESHOLD_QUOTIENT_HOSTILE_AUDIT_2026_08_13.md)
+- [当前上界定理](./docs/CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md)
+- [独立 hostile audit](./docs/TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md)
+- [被改进的 order-$3$ baseline](./docs/VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md)
 - [精确 right-congruence 变分刻画](./docs/RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md)
 
 因此，仓库目前没有在仅假设 $u/n\to\infty$ 时证明一般下界系数严格大于 $1$，
-也没有证明 $2.349083\ldots$ 最优。
+也没有证明 $2.34614905664$ 最优。
 
 ## 改变条件后的下界
 
@@ -61,12 +62,12 @@ $$
 
 | 模型或资源语义 | 半误差上界 | 来源 | 不能被误写成什么 |
 |---|---:|---|---|
-| 原始 ordinary、任意长历史、固定最坏空间 | $2.349083440193\ldots n+o(n)$ | 本仓库 | 尚未证明最优 |
+| 原始 ordinary、任意长历史、固定最坏空间 | $2.34614905664n+o(n)$ | 本仓库：cross-block mod-$6$ quotient | 尚未证明最优；numerical optimum 约为 $2.3461490548$ |
 | 与随机带独立的 oblivious history，长度 $f(n)$ 且 $\log f(n)=o(n)$，固定预分配空间 | $2.20061148296052\ldots n+o(n)$ | 本仓库：heterogeneous fingerprint information-spectrum coder | 不是 adaptive 或任意无限历史上界 |
 | polynomial universe、current-state whp space/time、uniform fingerprints | $2.28790401364596\ldots n+o(n)$ | 外部文献：Blelloch--Hu--Kuszmaul--Li--Zhou 2026 | 不是 KLZ fixed-worst-case $H$-bit 上界 |
 | 同一 whp-resource 语义，加入 permanent-YES thinning | $2.20061148296052\ldots n+o(n)$ | 本仓库对上述 2026 entropy array 的 lifting | 仍继承 whp 资源量词 |
 | incremental/insertion-only | $(1/\ln2)n=1.442695040888\ldots n$ | 外部经典 Bloom filter | 不支持 ordinary deletion |
-| uniform exact fingerprint multiplicities、全部 compositions、任意长历史 | $2.384499842479\ldots n+o(n)$ | 标准 fingerprint construction；常数在本仓库审计 | 只是 benchmark，已被 $2.349083\ldots$ ordinary quotient 改进 |
+| uniform exact fingerprint multiplicities、全部 compositions、任意长历史 | $2.384499842479\ldots n+o(n)$ | 标准 fingerprint construction；常数在本仓库审计 | 只是 benchmark，已被 $2.34614905664$ ordinary quotient 改进 |
 | dense universe：$u=2n$、任意长历史 | $n$ | 本仓库：balanced frozen mask | 不适用于 $u/n\to\infty$ |
 
 - [Subexponential-horizon fixed-space theorem](./docs/SUBEXPONENTIAL_HORIZON_FINGERPRINT_UPPER_BOUND_AUDIT_2026_08_14.md)
@@ -107,7 +108,9 @@ multiset 的高效动态熵编码上界，但没有给出 constant-error arbitra
   原始 $u/n\to\infty$ 条件下的下界。
 - $2.200611\ldots$ 不能写成任意长历史 fixed-worst-case 上界。
 - $2.287904\ldots$ 不能写成每张随机带都满足的固定空间上界。
-- $2.349083\ldots$ 是上界，不是 ordinary 模型的最优值或下界。
+- $2.34614905664$ 是当前严格上界，不是 ordinary 模型的最优值或下界。
+- $2.345979662\ldots$ 是两层 Pair hierarchy 的数值侦察；尚无独立 theorem package，
+  不列入主区间。
 
 ## Research TODO：$1.6079$ all-pivot 路线
 
@@ -140,8 +143,29 @@ filter 的下界 $H\ge1.6079n-o(n)$。这里没有 BSSI、monotonicity 或 canon
 是 simultaneous replacement-response width / transition-overlap 定理，或者一个证明
 这条路线不可能成功的 ordinary transducer 反例。
 
+本轮进一步得到一个不重复计费的精确接口。对 normalized ten-pivot dual，可写成
+
+$$
+H\ge C_{10}n+V_\lambda-o(n),
+$$
+
+其中 $V_\lambda$ 是条件于已有 full-fiber candidate list 后，future response 对 hidden
+batches 携带的 conditional mutual information。任何 $V_\lambda\ge\eta n$ 的一般定理
+都会把 $1.6079$ 提高 $\eta$；但 cylinder-complete fibers 证明 fixed-depth local probes
+可以有 $V_\lambda=0$，即使 exact rank 几乎是线性的。因此下一步必须是 linear-depth
+recurrent response 或跨 state 的 transversality theorem，而不是再加一个 marginal rank。
+
+- [Normalized-dual conditional novelty theorem](./docs/NORMALIZED_DUAL_CONDITIONAL_NOVELTY_2026_08_17.md)
+- [Future-visible double-charge barrier](./docs/ALL_PIVOT_FUTURE_VISIBLE_DOUBLE_CHARGE_BARRIER_2026_08_17.md)
+
+Continuous all-pivot tail equation 的 numerical location 约为 $1.7156$，但这不是当前
+下界。已经严格证明的是 endpoint density 的唯一 regular-variation exponent 为 $1$，
+且存在不可消除的 $v\log v$ boundary layer；这排除了 naive smooth-ODE 解法。
+
+- [Continuous endpoint boundary theorem](./docs/CONTINUOUS_ALL_PIVOT_ENDPOINT_BOUNDARY_2026_08_17.md)
+
 本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。只有以下任一项
-完成后，才再次更新主结果：
+完成后，才改变下界主常数或宣称目标问题取得本质突破：
 
 1. 在仅 $u/n\to\infty$ 下得到一般系数严格大于 $1$ 的下界；
 2. 给出 matching lower/upper bound，从而确定某个明确模型的最优一阶常数；
@@ -158,6 +182,7 @@ filter 的下界 $H\ge1.6079n-o(n)$。这里没有 BSSI、monotonicity 或 canon
 ```bash
 bash scripts/run_theorem_verifiers.sh
 python3 scripts/verify_multicut_half_error.py
+python3 scripts/verify_hierarchical_pair_quotient_uniform_audit.py
 ```
 
 探索性数值不视为定理；只有有限参数陈述和 hostile audit 都闭合后才进入上述表格。

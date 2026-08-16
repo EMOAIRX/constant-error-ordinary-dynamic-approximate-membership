@@ -19,13 +19,14 @@ n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
-2.349083440193\ldots n+o(n).
+2.34614905664n+o(n).
 $$
 
 | 结论 | 来源 | 文件 |
 |---|---|---|
 | $H\ge n-o(n)$ | **外部文献**：Carter static accepted-set counting | [KLZ fixed-error audit](./KLZ_FIXED_EPSILON_CONSTANT_AUDIT.md) |
-| $H\le2.349083440193\ldots n+o(n)$ | **本仓库定理**：order-$3$ algebraic threshold quotient | [theorem](./VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md), [audit](./ALGEBRAIC_THRESHOLD_QUOTIENT_HOSTILE_AUDIT_2026_08_13.md) |
+| $H\le2.34614905664n+o(n)$ | **本仓库定理**：cross-block mod-$6$ additive quotient | [theorem](./CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md), [audit](./TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md) |
+| $H\le2.349083440193\ldots n+o(n)$ | **本仓库旧定理**：order-$3$ algebraic threshold quotient；已被上一行改进 | [baseline](./VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md) |
 | finite-parameter optimum 的 randomized right-congruence minimax characterization | **本仓库结构定理**；尚无显式渐近常数 | [right-congruence variational theorem](./RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md) |
 
 ## 2. 下界：条件改变后
@@ -55,7 +56,7 @@ union mass 的机制。该条件尚未从低空间 ordinary semantics 推出。
 
 | 条件 | 半误差结论 | 类型 | 文件或来源 |
 |---|---:|---|---|
-| 任意长 history，fixed worst-case space | $2.349083440193\ldots n+o(n)$ | **本仓库定理** | [verified quotient](./VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md) |
+| 任意长 history，fixed worst-case space | $2.34614905664n+o(n)$ | **本仓库定理** | [cross-block quotient](./CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md), [audit](./TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md) |
 | oblivious fixed history，$\log f(n)=o(n)$，fixed preallocation | $2.20061148296052\ldots n+o(n)$ | **本仓库定理** | [subexponential-horizon theorem](./SUBEXPONENTIAL_HORIZON_FINGERPRINT_UPPER_BOUND_AUDIT_2026_08_14.md) |
 | polynomial seed-independent history，polylog time | $2.20061148296052\ldots n+o(n)$ | **本仓库定理**；exact IID fingerprint class 内 matching | [verified fingerprint theorem](./VERIFIED_MAIN_THEOREM.md) |
 | current-state whp space/time，uniform Poisson fingerprints | $2.28790401364596\ldots n+o(n)$ | **外部文献**：Blelloch--Hu--Kuszmaul--Li--Zhou 2026 | [Theorem 8.2 audit](./ENTROPY_ARRAYS_THEOREM_8_2_AUDIT.md) |
@@ -127,6 +128,8 @@ filter constant-error lower bound。
 - [Operational avalanche-or-information theorem](./OPERATIONAL_SUPPORT_COMPLETION_AVALANCHE_LOWER_BOUND_2026_08_16.md)：常数概率、常数比例 avalanche 产生显式 dynamic premium。
 - [Joint transportable-section rank-volume theorem](./JOINT_REPLACEMENT_RANK_VOLUME_LOWER_BOUND_2026_08_16.md)：jointly 编码 replacement labels 与 survivors，得到非负 rank premium。
 - [Exact right-congruence minimax](./RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md)：给出有限参数最优空间的精确 LP/minimax characterization。
+- [Normalized-dual conditional novelty](./NORMALIZED_DUAL_CONDITIONAL_NOVELTY_2026_08_17.md)：把 future-response information 合法嵌入 all-pivot dual；finite-depth cylinder theorem 同时给出 sharp local no-go。
+- [Continuous all-pivot endpoint boundary](./CONTINUOUS_ALL_PIVOT_ENDPOINT_BOUNDARY_2026_08_17.md)：证明 endpoint exponent 必为 $1$，并求出 $v\log v$ boundary layer；$1.7156$ 仍只是 numerical location。
 
 它们不是新的 universal numerical lower bound，不能单独填进 Section 1 的区间。
 
@@ -136,6 +139,8 @@ filter constant-error lower bound。
 - [Reverse-entropy telescoping audit](./REVERSE_ENTROPY_TELESCOPING_AUDIT_2026_08_13.md)：若不条件于完整 label prefix，同一 bit 可反复擦除、恢复和收费。
 - [Ordinary belief-state complementarity no-go](./ORDINARY_BELIEF_STATE_COMPLEMENTARITY_NOGO_2026_08_13.md)：单 fiber rank 与 transport 没有普适正 gap。
 - [Rank-$1$ residual-shadow barrier](./JOINT_REPLACEMENT_RANK_VOLUME_LOWER_BOUND_2026_08_16.md)：极薄 covering design 仍可让所有 rank-$1$ sections 看起来完整。
+- [Future-visible double-charge barrier](./ALL_PIVOT_FUTURE_VISIBLE_DOUBLE_CHARGE_BARRIER_2026_08_17.md)：exact bucket counts 同时实现 all-pivot deficit、exact rank 和 deletion 后 response distinctions，三者不能裸加。
+- [Pair hierarchy symmetry failure](./HIERARCHICAL_PAIR_QUOTIENT_SYMMETRY_FAILURE_2026_08_17.md)：单个 distinguished query 的 $(G,E)$ profile 不能冒充 uniform inner-label FPR。
 
 因此，raw per-cut deficits、marginal union sizes、posterior TC 或两个独立上界不能在
 没有 joint-intersection/transversality theorem 时直接相加。
@@ -149,7 +154,10 @@ filter constant-error lower bound。
 | $1.199273$ ordinary | 只证明于 monotone 子类；ordinary nonmonotone lifting 有 partition-dependence gap |
 | $2.200611$ arbitrary infinite history | 当前只在受限 horizon 或 whp-resource 语义成立 |
 | $2.287904$ fixed-worst-case | 外部 entropy-array theorem 给的是 whp space/time |
-| $2.349083$ optimum | 目前只是可实现上界；matching lower bound 仅在某些 restricted quotient classes 内成立 |
+| $2.349083$ current upper | 已被 cross-block mod-$6$ 的严格 $2.34614905664$ 改进 |
+| $2.346149$ optimum | 目前只是可实现上界；matching lower bound 仅在某些 restricted quotient classes 内成立 |
+| $2.345979662$ theorem | 目前只是两层 Pair hierarchy 数值侦察，尚无独立 theorem package |
+| $1.7156$ lower bound | 只是 continuous all-pivot tail equation 的 numerical location，奇异极限尚未闭合 |
 
 Kuszmaul--Walzer 2024 的精确线性余项暂不在本页列小数：KLZ arXiv v1 中展示的
 公式含一个 $1/2$ 因子时数值约为 $0.1785n$，但相邻文字写“约 $0.35n$”。在核到

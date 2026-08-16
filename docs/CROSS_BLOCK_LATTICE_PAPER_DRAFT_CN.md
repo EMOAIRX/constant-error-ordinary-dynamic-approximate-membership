@@ -193,11 +193,15 @@ R=\min_{0<z<1}
 \left\{\frac1{\lambda_*}\log_2 A(z)-\log_2z\right\}.
 \]
 
-有理区间计算认证
+有理区间计算认证主定理所需的固定测试点上界
 
 \[
-2.34614905208<R<2.34614905664.
+R<2.34614905664.
 \]
+
+数值优化给出 $R\approx2.346149054803345$；该小数用于定位，不作为 verifier 已认证的
+两侧区间。旧稿中的 lower endpoint 来自固定 $z$ evaluation，不能下界 $\inf_z$，现已
+删除。
 
 有限 \(n\) 下，将 target load 向下偏移 \(n^{-1/4}\)，再用 Le Cam bound 控制
 binomial-to-Poisson 误差，可以得到严格的 pointwise FPR。固定 codebook 枚举所有
