@@ -5,52 +5,89 @@ membership problem left open by Kuszmaul--Liang--Zhou (FOCS 2025).
 
 ## Latest result
 
-The newest structural result is a **joint transportable-section rank-volume
-lower bound**. It applies to arbitrary history-dependent ordinary filters with
-multiple representations, ghosts, holonomy, nonmonotone queries, and
-public-coin reliability allocation. It does not require BSSI.
-
-For a uniform $t$-set source, let $w$ be the full operational-fiber union size.
-Choose source members to delete and nonmembers to insert, and let
-$\Delta^{(d)}$ be the resulting residual $d$-shadow rank deficit. For every
-$1\le d\le t-a$, the theorem proves
+The newest result is an **unconditional ordinary-model lower-bound
+improvement**. For fixed $0<\varepsilon<1$, one-sided pointwise error, free
+public randomness, and
 
 $$
-H\ge
-\log_2\binom ut
--\mathbb E\log_2\binom wt
-+\mathbb E\Delta^{(d)}.
+\frac{u}{n^2}\longrightarrow\infty,
 $$
 
-After the pointwise-FPR bound, in the natural-universe regime this becomes
+every fully dynamic filter with $H$ bits of worst-case persistent memory
+satisfies
 
 $$
-H\ge
-t\log_2\frac1\varepsilon
-+\mathbb E\Delta^{(d)}
--o(t).
+\liminf_{n\to\infty}\frac Hn\ge h_\varepsilon,
 $$
 
-The replacement labels and untouched survivors are encoded jointly, so the
-previous suffix-source mutual-information penalty disappears exactly rather
-than being assumed small. The hierarchy interpolates from query-visible union
-rank at $d=1$ to full operational-support count at $d=t-a$. The entropy proof
-uses parent operational sections; fixed-word transport makes those sections
-available at candidate-specific successors, but successor FPR has not yet
-been used to force the premium positive.
+where $h_\varepsilon$ is the unique fixed point
 
-There is also a sharp boundary: an operational family with only $O(\log u)$
-sets can have $\Delta^{(1)}=0$ for every one-for-one replacement section.
-Therefore rank-1 union geometry alone cannot yield a universal premium. The
-next target is to prove that extensive recurrent replacements expose some
-higher residual shadow as future rank-1 query behavior, or to construct a
-right-congruent counterexample.
+$$
+h_\varepsilon
+=
+\int_0^1
+(1-2^{-h_\varepsilon/c})
+\log_2
+\frac{1-2^{-h_\varepsilon/c}}
+{\varepsilon-2^{-h_\varepsilon/c}}
+\,dc.
+$$
+
+At half error,
+
+$$
+\boxed{h_{1/2}=1.19810077403325\ldots}
+$$
+
+for the integral fixed point. A monotone left-Riemann certificate gives the
+rigorous rounded statement
+
+$$
+\boxed{H\ge1.198n-o(n).}
+$$
+
+This strictly improves the formally proved Lovett--Porat bound
+$1.1n-o(n)$ and exceeds their reported recursive value near $1.13$. The proof
+does not use their invalid black-box substitution
+$H\mapsto M_D(k,\varepsilon)$. It keeps the same unknown global $H$ at every
+cut, partitions the suffix into disjoint segments, and counts only
+
+$$
+(\text{initial prefix},\text{ final physical state}).
+$$
+
+Each segment is charged by the prefix union available before that segment;
+the final factor $2^H$ is used exactly once. Fresh-distinct legality is repaired
+by a canonical-witness transport bound, which is where the present
+$u/n^2\to\infty$ assumption enters.
+
+This is not a twenty-block numerical certificate. With only two suffix
+segments and the rational cuts
+
+$$
+c_0=\frac7{12},
+\qquad
+c_1=\frac56,
+$$
+
+the same theorem already gives the reviewer-safe explicit bound
+
+$$
+\boxed{H\ge1.134n-o(n).}
+$$
+
+- [Multicut theorem](./docs/MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md)
+- [Hostile proof audit](./docs/MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md)
+- [Half-error verifier](./scripts/verify_multicut_half_error.py)
+
+The previous joint rank-volume theorem remains useful as a replacement-route
+structural identity, but it is no longer the latest result:
 
 - [Joint rank-volume theorem](./docs/JOINT_REPLACEMENT_RANK_VOLUME_LOWER_BOUND_2026_08_16.md)
-- [Hostile proof audit](./docs/JOINT_REPLACEMENT_RANK_VOLUME_HOSTILE_AUDIT_2026_08_16.md)
+- [Joint rank-volume hostile audit](./docs/JOINT_REPLACEMENT_RANK_VOLUME_HOSTILE_AUDIT_2026_08_16.md)
 - [Previous operational avalanche theorem](./docs/OPERATIONAL_SUPPORT_COMPLETION_AVALANCHE_LOWER_BOUND_2026_08_16.md)
 
-## Strongest numerical theorem
+## Strongest conditional numerical theorem
 
 The strongest numerical result remains the natural-universe lower bound for
 filters with **bounded source-section influence (BSSI)**.
@@ -94,8 +131,25 @@ numerical certificate. The proof uses only the two endpoint pivots.
 
 ## Is this the general ordinary-model solution?
 
-**No.** The BSSI numerical theorem is effective and fairly broad, but it is
-still conditional.
+**It is a genuine unconditional ordinary-model improvement, but it is not the
+final sharp solution.**
+
+The new fixed-point theorem, whose half-error coefficient is numerically
+$1.198100774\ldots$, permits arbitrary history dependence, multiple
+representations, nonmonotone query sets, ghosts, holonomy, and public-coin
+reliability allocation. It uses no BSSI or history-independence assumption.
+Its current universe hypothesis is
+
+$$
+u/n^2\to\infty.
+$$
+
+What remains open is to weaken this to the full natural-universe regime
+$u/n\to\infty$, determine the sharp constant, and understand whether the
+optimal half-error coefficient reaches the fingerprint upper endpoint.
+
+The BSSI theorem below remains a stronger conditional result in the wider
+$u/n\to\infty$ regime.
 
 BSSI permits:
 
@@ -109,16 +163,9 @@ witnesses cover the full operational union and that revealing one fresh suffix
 insertion destroys only bounded expected union mass. We have not proved that
 every low-space ordinary filter satisfies this condition.
 
-The support-completion theorem removes source-invisible ghosts as a single-cut
-obstruction. The newer joint rank-volume theorem also removes the
-suffix-source-information penalty and exposes a hierarchy of higher-order
-residual deficits. What remains is to force one of those deficits to become
-linear under extensive recurrent replacement, using only point-query
-semantics and one persistent-state budget.
-
-The matching arbitrary-filter lower bound remains open. The main target is a
-recurrent residual-shadow exposure or cylinder-recursion width theorem for the
-full labeled right-congruence action.
+The support-completion and joint rank-volume theorems remain possible tools for
+reducing the universe requirement or improving the coefficient, but they are
+not needed for the new unconditional multicut bound.
 
 ## Repository layout
 
@@ -142,7 +189,7 @@ Run the main theorem verifiers from the repository root:
 ```bash
 bash scripts/run_theorem_verifiers.sh
 python3 scripts/verify_endpoint_batch_constant.py
-python3 scripts/verify_ten_block_160_certificate.py
+python3 scripts/verify_multicut_half_error.py
 ```
 
 Exploratory scripts are not proofs. Numerical observations are promoted to
