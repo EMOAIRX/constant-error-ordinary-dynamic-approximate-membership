@@ -5,79 +5,86 @@ membership problem left open by Kuszmaul--Liang--Zhou (FOCS 2025).
 
 ## Latest result
 
-The newest structural result is an **operational support-completion and
-avalanche-or-information theorem**.  It applies to the full ordinary model at a
-single replacement cut: arbitrary history dependence, multiple
-representations, nonmonotone queries, ghosts, holonomy, and public-coin
-reliability allocation are all allowed.
+The newest structural result is a **joint transportable-section rank-volume
+lower bound**. It applies to arbitrary history-dependent ordinary filters with
+multiple representations, ghosts, holonomy, nonmonotone queries, and
+public-coin reliability allocation. It does not require BSSI.
 
-For a uniform `t`-set source, a self-contained random suffix, parent full-fiber
-union size `w`, successor transport loss `L`, static support information `A`, and
-suffix-source information `J`, it proves
+For a uniform $t$-set source, let $w$ be the full operational-fiber union size.
+Choose source members to delete and nonmembers to insert, and let
+$\Delta^{(d)}$ be the resulting residual $d$-shadow rank deficit. For every
+$1\le d\le t-a$, the theorem proves
 
-\[
-t\,\mathbb E\log_2\frac{w}{w-L}
-\le H-A+J.
-\]
+$$
+H\ge
+\log_2\binom ut
+-\mathbb E\log_2\binom wt
++\mathbb E\Delta^{(d)}.
+$$
 
-Consequently, if
+After the pointwise-FPR bound, in the natural-universe regime this becomes
 
-\[
-\Pr[L\ge\theta w]\ge\tau,
-\]
+$$
+H\ge
+t\log_2\frac1\varepsilon
++\mathbb E\Delta^{(d)}
+-o(t).
+$$
 
-then, in the natural-universe regime with `J=o(t)`,
+The replacement labels and untouched survivors are encoded jointly, so the
+previous suffix-source mutual-information penalty disappears exactly rather
+than being assumed small. The hierarchy interpolates from query-visible union
+rank at $d=1$ to full operational-support count at $d=t-a$. The entropy proof
+uses parent operational sections; fixed-word transport makes those sections
+available at candidate-specific successors, but successor FPR has not yet
+been used to force the premium positive.
 
-\[
-H\ge t\left[
-\log_2\frac1\varepsilon
-+\tau\log_2\frac1{1-\theta}
-\right]-o(t).
-\]
+There is also a sharp boundary: an operational family with only $O(\log u)$
+sets can have $\Delta^{(1)}=0$ for every one-for-one replacement section.
+Therefore rank-1 union geometry alone cannot yield a universal premium. The
+next target is to prove that extensive recurrent replacements expose some
+higher residual shadow as future rank-1 query behavior, or to construct a
+right-congruent counterexample.
 
-Thus a constant operational avalanche gives a genuine lower-bound premium
-over the Carter rate without BSSI or source-cover completeness.  The proof's
-infinitesimal support completion accounts for source-invisible operational
-ghosts at vanishing entropy cost while retaining their full-union deficit.
-
-- [Full theorem](./docs/OPERATIONAL_SUPPORT_COMPLETION_AVALANCHE_LOWER_BOUND_2026_08_16.md)
-- [Hostile proof audit](./docs/OPERATIONAL_SUPPORT_COMPLETION_HOSTILE_AUDIT_2026_08_16.md)
+- [Joint rank-volume theorem](./docs/JOINT_REPLACEMENT_RANK_VOLUME_LOWER_BOUND_2026_08_16.md)
+- [Hostile proof audit](./docs/JOINT_REPLACEMENT_RANK_VOLUME_HOSTILE_AUDIT_2026_08_16.md)
+- [Previous operational avalanche theorem](./docs/OPERATIONAL_SUPPORT_COMPLETION_AVALANCHE_LOWER_BOUND_2026_08_16.md)
 
 ## Strongest numerical theorem
 
 The strongest numerical result remains the natural-universe lower bound for
 filters with **bounded source-section influence (BSSI)**.
 
-For an ordinary one-sided dynamic filter with fixed `H`-bit persistent memory,
+For an ordinary one-sided dynamic filter with fixed $H$-bit persistent memory,
 free public randomness, pointwise false-positive probability at most
-`epsilon`, superlinear operation horizon, and
+$\varepsilon$, superlinear operation horizon, and
 
-\[
+$$
 u/n\longrightarrow\infty,
-\]
+$$
 
 BSSI implies
 
-\[
+$$
 H\ge C_{\rm end}(\varepsilon)n-o(n),
-\]
+$$
 
 where
 
-\[
+$$
 C_{\rm end}(\varepsilon)
 =\min_{0<x<1}\max\left\{
 \log_2\frac1{\varepsilon x},
 (1-\varepsilon x)
 \log_2\frac{1-\varepsilon x}{\varepsilon(1-x)}
 \right\}.
-\]
+$$
 
 At half error,
 
-\[
+$$
 \boxed{H\ge1.434406361243753\ldots n-o(n).}
-\]
+$$
 
 This is a structural universe-range improvement, not a deeper finite-block
 numerical certificate. The proof uses only the two endpoint pivots.
@@ -102,16 +109,16 @@ witnesses cover the full operational union and that revealing one fresh suffix
 insertion destroys only bounded expected union mass. We have not proved that
 every low-space ordinary filter satisfies this condition.
 
-The new support-completion theorem removes source-invisible ghosts as a
-single-cut obstruction: a large avalanche is already paid by excess state
-information.  What remains is the opposite regime.  An unrestricted
-counterexample must maintain small operational avalanches across many
-recurrent replacement cuts without paying equivalent joint response width or
-false-positive cost.
+The support-completion theorem removes source-invisible ghosts as a single-cut
+obstruction. The newer joint rank-volume theorem also removes the
+suffix-source-information penalty and exposes a hierarchy of higher-order
+residual deficits. What remains is to force one of those deficits to become
+linear under extensive recurrent replacement, using only point-query
+semantics and one persistent-state budget.
 
 The matching arbitrary-filter lower bound remains open. The main target is a
-replacement-response width theorem, equivalently a stationary causal
-one-sided Poisson rate-distortion theorem with labeled successor closure.
+recurrent residual-shadow exposure or cylinder-recursion width theorem for the
+full labeled right-congruence action.
 
 ## Repository layout
 
