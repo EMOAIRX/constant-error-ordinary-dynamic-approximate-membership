@@ -15,16 +15,19 @@
 false negatives、pointwise FPR。
 
 $$
-n-o(n)
+(1+2^{-48})n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
 2.34614905664n+o(n).
 $$
 
+这里 $2^{-48}$ 是 theorem package 给出的保守解析 witness，尚未优化。
+
 | 结论 | 来源 | 文件 |
 |---|---|---|
-| $H\ge n-o(n)$ | **外部文献**：Carter static accepted-set counting | [KLZ fixed-error audit](./KLZ_FIXED_EPSILON_CONSTANT_AUDIT.md) |
+| $H\ge(1+2^{-48})n-o(n)$ | **本仓库定理**：simultaneous replacement-cover width；一般 ordinary 模型、只需 $u/n\to\infty$ | [natural-universe theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md) |
+| $H\ge n-o(n)$ | **外部文献**：Carter static accepted-set baseline；已被上一行动态下界严格改进 | [KLZ fixed-error audit](./KLZ_FIXED_EPSILON_CONSTANT_AUDIT.md) |
 | $H\le2.34614905664n+o(n)$ | **本仓库定理**：cross-block mod-$6$ additive quotient | [theorem](./CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md), [audit](./TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md) |
 | $H\le2.349083440193\ldots n+o(n)$ | **本仓库旧定理**：order-$3$ algebraic threshold quotient；已被上一行改进 | [baseline](./VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md) |
 | finite-parameter optimum 的 randomized right-congruence minimax characterization | **本仓库结构定理**；尚无显式渐近常数 | [right-congruence variational theorem](./RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md) |
@@ -33,6 +36,7 @@ $$
 
 | 条件 | 半误差结论 | 类型 | 文件或来源 |
 |---|---:|---|---|
+| $u/n\to\infty$，ordinary | $H\ge(1+2^{-48})n-o(n)$ | **本仓库定理**；无附加结构假设 | [simultaneous replacement-cover theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md) |
 | $u/n^2\to\infty$，$f(n)/n\to\infty$，ordinary | $H\ge C_{\mathrm{AP}}n-o(n)$，$C_{\mathrm{AP}}>1.607987002861718\ldots$ | **本仓库定理**；在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；continuous hierarchy 的严格极限 | [continuous theorem](./CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md), [finite predecessor](./EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md) |
 | $u/n^2\to\infty$，ordinary | $H\ge1.198n-o(n)$ | **本仓库定理**，无额外结构假设 | [multicut theorem](./MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md), [audit](./MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md) |
 | $u/n\to\infty$，BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | **本仓库条件定理** | [theorem](./BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md), [audit](./BOUNDED_SOURCE_SECTION_INFLUENCE_HOSTILE_AUDIT_2026_08_15.md) |

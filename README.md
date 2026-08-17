@@ -13,7 +13,7 @@ Insert/Delete 历史、固定最坏持久空间、免费公共随机带、zero f
 
 $$
 \boxed{
-n-o(n)
+(1+2^{-48})n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
@@ -21,18 +21,21 @@ H^*_{1/2}(n,u)
 }
 $$
 
+这里 $2^{-48}$ 是证明直接给出的、刻意未优化的绝对常数；它不是数值搜索结果。
+
 | 方向 | 结论 | 来源 | 状态 |
 |---|---:|---|---|
-| 下界 | $H\ge n-o(n)$ | 外部文献：Carter 型静态 accepted-set 计数下界 | 无条件；目前自然宇宙下的一般下界 |
+| 下界 | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width theorem | 无条件；只假设 $u/n\to\infty$，允许 arbitrary history dependence |
 | 上界 | $H\le2.34614905664n+o(n)$ | 本仓库：cross-block mod-$6$ additive quotient | 无条件；任意长历史、无 overflow、固定最坏空间 |
 
+- [当前下界定理](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
 - [当前上界定理](./docs/CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md)
 - [独立 hostile audit](./docs/TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md)
 - [被改进的 order-$3$ baseline](./docs/VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md)
 - [精确 right-congruence 变分刻画](./docs/RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md)
 
-因此，仓库目前没有在仅假设 $u/n\to\infty$ 时证明一般下界系数严格大于 $1$，
-也没有证明 $2.34614905664$ 最优。
+因此，原始 ordinary 模型的静态 $n$-bit barrier 已被严格突破；目前仍未确定
+下界增益的最佳值，也没有证明 $2.34614905664$ 最优。
 
 ## 改变条件后的下界
 
@@ -40,7 +43,7 @@ $$
 
 | 模型或额外条件 | 半误差下界 | 来源 | 准确地位 |
 |---|---:|---|---|
-| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge n-o(n)$ | 外部文献：Carter 静态基线 | 一般、无条件 |
+| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width | 一般、无条件；首次严格超过 Carter 静态基线 |
 | ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge C_{\mathrm{AP}}n-o(n)$，其中 $C_{\mathrm{AP}}>1.607987002861718\ldots$ | 本仓库：continuous full-fiber all-pivot converse | 在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；$C_{\mathrm{AP}}$ 是完整 finite hierarchy 的严格极限，不是新挑选的有限 block 常数 |
 | ordinary 模型，$u/n^2\to\infty$ | $H\ge1.198n-o(n)$ | 本仓库：multicut prefix-union theorem | 一般、无条件；证明只用 fresh insertions，因此也适用于 incremental filters |
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |
@@ -50,6 +53,7 @@ $$
 
 相关文件：
 
+- [Natural-universe simultaneous replacement theorem](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
 - [Continuous all-pivot variational limit](./docs/CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)
 - [$1.6079$ finite all-pivot predecessor](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
 - [$1.6079$ lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
@@ -105,6 +109,7 @@ multiset 的高效动态熵编码上界，但没有给出 constant-error arbitra
 ## 不是当前定理的数字
 
 - $1.13$ 是 Lovett--Porat 文中的 computer-search remark，不是已认证定理。
+- 原始模型的新常数可严格取 $2^{-48}$；这是解析证明中的保守 witness，不是优化值。
 - $C_{\mathrm{AP}}>1.607987\ldots$ 现在是 $u/n^2\to\infty$ 且
   $f(n)/n\to\infty$ 下的最强 all-pivot 定理；它仍不是原始
   $u/n\to\infty$ 条件下的下界。
@@ -161,11 +166,13 @@ canonical-state 假设，也没有使用 growing-depth tree。
 - [Finite $C_{10}$ theorem](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
 - [Finite lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
 
-仍未完成的是把强宇宙条件降到原始的 $u/n\to\infty$。当前 hard-union transport
-在 suffix witness collision 上支付约 $n^2$ 的损失；已有 avalanche、posterior deficit
-和 rank-volume 引理尚不能把多个 operational parents 的损失统一收费。下一步需要的
-是 simultaneous replacement-response width / transition-overlap 定理，或者一个证明
-这条路线不可能成功的 ordinary transducer 反例。
+强宇宙条件已经通过 simultaneous replacement-cover width theorem 降到原始的
+$u/n\to\infty$，但目前只得到显式增益 $2^{-48}$，还没有接近
+$C_{\mathrm{AP}}$。新证明不再要求一个 hard-union witness 同时避开全部 suffix；它对
+每个 replacement branch 分别做 posterior pruning，并用一次 KL chain rule 统一收费。
+这正是消除旧 $n^2/u$ collision 门槛的关键。
+
+- [Natural-universe replacement-cover theorem](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
 
 本轮进一步得到一个不重复计费的精确接口。对 normalized ten-pivot dual，可写成
 
@@ -197,7 +204,8 @@ density 的唯一 regular-variation 指数 $1$ 与不可消除的 $v\log v$ boun
 本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。下一步真正需要
 的是以下任一项：
 
-1. 在仅 $u/n\to\infty$ 下得到一般系数严格大于 $1$ 的下界；
+1. 显著改进 natural-universe theorem 当前保守的 $2^{-48}$，并尽量
+   向 $C_{\mathrm{AP}}$ 靠近；
 2. 给出 matching lower/upper bound，从而确定某个明确模型的最优一阶常数；
 3. 证明 all-active regularity 和 matching adjoint potential，从而解析识别
    $C_{\mathrm{AP}}$；
