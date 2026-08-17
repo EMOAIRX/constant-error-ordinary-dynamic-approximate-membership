@@ -7,3 +7,7 @@ tmp/
 # Local literature copies; use the cited arXiv/DOI sources instead.
 *.pdf
 *.html
+
+# Keep manuscript sources and rendered artifacts local.
+paper/
+output/

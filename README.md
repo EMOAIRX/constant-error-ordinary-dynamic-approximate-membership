@@ -43,7 +43,7 @@ $$
 
 | 模型或额外条件 | 半误差下界 | 来源 | 准确地位 |
 |---|---:|---|---|
-| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width | 一般、无条件；首次严格超过 Carter 静态基线 |
+| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width | 一般、无条件；据我们所知，首个在 KLZ legal-update 模型中严格超过 Carter 静态基线的结果 |
 | ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge C_{\mathrm{AP}}n-o(n)$，其中 $C_{\mathrm{AP}}>1.607987002861718\ldots$ | 本仓库：continuous full-fiber all-pivot converse | 在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；$C_{\mathrm{AP}}$ 是完整 finite hierarchy 的严格极限，不是新挑选的有限 block 常数 |
 | ordinary 模型，$u/n^2\to\infty$ | $H\ge1.198n-o(n)$ | 本仓库：multicut prefix-union theorem | 一般、无条件；证明只用 fresh insertions，因此也适用于 incremental filters |
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |

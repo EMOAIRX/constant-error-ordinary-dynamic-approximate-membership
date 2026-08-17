@@ -447,7 +447,7 @@ resize, adversarial-query, or thermodynamic machinery to rescue the model.
   PACMMOD/SIGMOD 2024, DOI: <https://doi.org/10.1145/3626721>.
 - Lovett, Porat, *A Space Lower Bound for Dynamic Approximate Membership Data
   Structures*, FOCS 2010 / SICOMP 2013, DOI:
-  <https://doi.org/10.1137/100806763>.
+  <https://doi.org/10.1137/120867044>.
 - Pagh, Segev, Wieder, *How to Approximate a Set Without Knowing Its Size in
   Advance*, FOCS 2013, <https://arxiv.org/abs/1304.1188>.
 - Kuszmaul, Walzer, *Space Lower Bounds for Dynamic Filters and Value-Dynamic

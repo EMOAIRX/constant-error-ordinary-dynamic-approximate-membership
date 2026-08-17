@@ -285,7 +285,7 @@ is upgraded to Target A, B, or C.
   [arXiv:2510.18129](https://arxiv.org/abs/2510.18129).
 - Lovett, Porat, *A Space Lower Bound for Dynamic Approximate Membership Data
   Structures*, FOCS 2010 / SICOMP 2013,
-  [DOI](https://doi.org/10.1137/100806763).
+  [DOI](https://doi.org/10.1137/120867044).
 - Bercea, Even, *A Dynamic Space-Efficient Filter with Constant Time
   Operations*, SWAT 2020, [arXiv:2005.01098](https://arxiv.org/abs/2005.01098).
 - Kuszmaul, Walzer, *Space Lower Bounds for Dynamic Filters and Value-Dynamic

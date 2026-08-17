@@ -179,7 +179,7 @@ KW24 primary source 前，不把这个存在 factor-two 冲突的二手常数当
 
 - Carter et al., *Exact and Approximate Membership Testers*, STOC 1978, [DOI](https://doi.org/10.1145/800133.804332).
 - Bloom, *Space/Time Trade-offs in Hash Coding with Allowable Errors*, CACM 1970, [DOI](https://doi.org/10.1145/362686.362692).
-- Lovett--Porat, *A Space Lower Bound for Dynamic Approximate Membership Data Structures*, FOCS 2010 / SICOMP 2013, [DOI](https://doi.org/10.1137/100806763).
+- Lovett--Porat, *A Space Lower Bound for Dynamic Approximate Membership Data Structures*, FOCS 2010 / SICOMP 2013, [DOI](https://doi.org/10.1137/120867044).
 - Pagh--Segev--Wieder, *How to Approximate a Set Without Knowing Its Size in Advance*, FOCS 2013, [arXiv](https://arxiv.org/abs/1304.1188).
 - Kuszmaul--Liang--Zhou, *Fingerprint Filters Are Optimal*, FOCS 2025, [arXiv](https://arxiv.org/abs/2510.18129).
 - Blelloch--Hu--Kuszmaul--Li--Zhou, *Dynamic Entropy-Encoded Arrays in $O(1)$ Time with Nearly Optimal Space*, 2026, [arXiv](https://arxiv.org/abs/2608.06066).
