@@ -15,18 +15,20 @@
 false negatives、pointwise FPR。
 
 $$
-(1+2^{-48})n-o(n)
+(1+2^{-20})n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
 2.34614905664n+o(n).
 $$
 
-这里 $2^{-48}$ 是 theorem package 给出的保守解析 witness，尚未优化。
+这里 $2^{-20}$ 是 quantitative 论证的显式 witness（$\sqrt\gamma$-tails 与
+$\alpha\to1-\varepsilon$ 覆盖界优化，机器验证；旧 witness $2^{-48}$ 已被改进）。
+一般固定 $\varepsilon$ 的版本见根 README 与 `focs-paper/`。
 
 | 结论 | 来源 | 文件 |
 |---|---|---|
-| $H\ge(1+2^{-48})n-o(n)$ | **本仓库定理**：simultaneous replacement-cover width；一般 ordinary 模型、只需 $u/n\to\infty$ | [natural-universe theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md) |
+| $H\ge(1+2^{-20})n-o(n)$ | **本仓库定理**：simultaneous replacement-cover width；一般 ordinary 模型、只需 $u/n\to\infty$；witness 优化见 `focs-paper/` | [natural-universe theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md) |
 | $H\ge n-o(n)$ | **外部文献**：Carter static accepted-set baseline；已被上一行动态下界严格改进 | [KLZ fixed-error audit](./KLZ_FIXED_EPSILON_CONSTANT_AUDIT.md) |
 | $H\le2.34614905664n+o(n)$ | **本仓库定理**：cross-block mod-$6$ additive quotient | [theorem](./CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md), [audit](./TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md) |
 | $H\le2.349083440193\ldots n+o(n)$ | **本仓库旧定理**：order-$3$ algebraic threshold quotient；已被上一行改进 | [baseline](./VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md) |
@@ -39,7 +41,7 @@ $$
 
 | 条件 | 半误差结论 | 类型 | 文件或来源 |
 |---|---:|---|---|
-| $u/n\to\infty$，ordinary | $H\ge(1+2^{-48})n-o(n)$ | **本仓库定理**；无附加结构假设 | [simultaneous replacement-cover theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md) |
+| $u/n\to\infty$，ordinary | $H\ge(1+2^{-20})n-o(n)$ | **本仓库定理**；无附加结构假设；witness 优化见 `focs-paper/` | [simultaneous replacement-cover theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md) |
 | $u/n^2\to\infty$，$f(n)/n\to\infty$，ordinary | $H\ge C_{\mathrm{AP}}n-o(n)$，$C_{\mathrm{AP}}>1.607987002861718\ldots$ | **本仓库定理**；在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；continuous hierarchy 的严格极限 | [continuous theorem](./CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md), [finite predecessor](./EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md) |
 | $u/n^2\to\infty$，ordinary | $H\ge1.198n-o(n)$ | **本仓库定理**，无额外结构假设 | [multicut theorem](./MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md), [audit](./MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md) |
 | $u/n\to\infty$，BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | **本仓库条件定理** | [theorem](./BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md), [audit](./BOUNDED_SOURCE_SECTION_INFLUENCE_HOSTILE_AUDIT_2026_08_15.md) |
@@ -162,7 +164,7 @@ Section 1 的原始模型区间。
 | 数字 | 原因 |
 |---:|---|
 | $1.13$ | Lovett--Porat computer-search remark，不是正式证书 |
-| $C_{\mathrm{AP}}$ under only $u/n\to\infty$ | $C_{\mathrm{AP}}$ 的 lifting 仍需要 $u/n^2\to\infty$ 和确定的超线性 horizon；新 replacement-cover theorem 只给 $1+2^{-48}$，尚未把 $C_{\mathrm{AP}}$ 推到自然宇宙 |
+| $C_{\mathrm{AP}}$ under only $u/n\to\infty$ | $C_{\mathrm{AP}}$ 的 lifting 仍需要 $u/n^2\to\infty$ 和确定的超线性 horizon；新 replacement-cover theorem 只给 $1+2^{-20}$（witness 已从 $2^{-48}$ 优化，且该框架封顶在 $2^{-\Theta(1)}$），尚未把 $C_{\mathrm{AP}}$ 推到自然宇宙 |
 | $1.199273$ ordinary | 只证明于 monotone 子类；ordinary nonmonotone lifting 有 partition-dependence gap |
 | $2.200611$ arbitrary infinite history | 当前只在受限 horizon 或 whp-resource 语义成立 |
 | $2.287904$ fixed-worst-case | 外部 entropy-array theorem 给的是 whp space/time |

@@ -13,7 +13,7 @@ Insert/Delete 历史、固定最坏持久空间、免费公共随机带、zero f
 
 $$
 \boxed{
-(1+2^{-48})n-o(n)
+(1+2^{-20})n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
@@ -21,11 +21,21 @@ H^*_{1/2}(n,u)
 }
 $$
 
-这里 $2^{-48}$ 是证明直接给出的、刻意未优化的绝对常数；它不是数值搜索结果。
+这里 $2^{-20}$ 是 quantitative 论证的显式 witness：$\sqrt\gamma$-tails 异常预算与
+$\alpha\to1-\varepsilon$ 覆盖界的组合给出的解析常数，全部不等式有零依赖
+`Fraction` 验证脚本（见 [`focs-paper/`](./focs-paper/README.md)）。它不是数值搜索
+结果；该框架的自洽极限封顶在 $2^{-\Theta(1)}$（Markov 约束 $\tau\ge\Theta(\sqrt\gamma)$
+乘以集合包含计数的指数容量），进一步的显著改进需要新机制。
+
+一般固定误差 $\varepsilon\in(0,1)$ 的版本同样成立：存在显式
+$\eta_\varepsilon=2^{-X(\varepsilon)-2}$ 使
+$H\ge(1+\eta_\varepsilon)\,n\log_2(1/\varepsilon)-o(n)$，即对每个固定错误率都严格
+超越 Carter 静态基线 $n\log_2(1/\varepsilon)$；$X(\varepsilon)$ 的显式公式与数值表见
+[`focs-paper/GENERAL_EPS_EXTENSION.md`](./focs-paper/GENERAL_EPS_EXTENSION.md)。
 
 | 方向 | 结论 | 来源 | 状态 |
 |---|---:|---|---|
-| 下界 | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width theorem | 无条件；只假设 $u/n\to\infty$，允许 arbitrary history dependence |
+| 下界 | $H\ge(1+2^{-20})n-o(n)$ | 本仓库：simultaneous replacement-cover width theorem；witness 常数优化见 `focs-paper/` | 无条件；只假设 $u/n\to\infty$，允许 arbitrary history dependence |
 | 上界 | $H\le2.34614905664n+o(n)$ | 本仓库：cross-block mod-$6$ additive quotient | 无条件；任意长历史、无 overflow、固定最坏空间 |
 
 - [当前下界定理](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
@@ -43,7 +53,7 @@ $$
 
 | 模型或额外条件 | 半误差下界 | 来源 | 准确地位 |
 |---|---:|---|---|
-| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width | 一般、无条件；据我们所知，首个在 KLZ legal-update 模型中严格超过 Carter 静态基线的结果 |
+| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+2^{-20})n-o(n)$ | 本仓库：simultaneous replacement-cover width | 一般、无条件；据我们所知，首个在 KLZ legal-update 模型中严格超过 Carter 静态基线的结果 |
 | ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge C_{\mathrm{AP}}n-o(n)$，其中 $C_{\mathrm{AP}}>1.607987002861718\ldots$ | 本仓库：continuous full-fiber all-pivot converse | 在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；$C_{\mathrm{AP}}$ 是完整 finite hierarchy 的严格极限，不是新挑选的有限 block 常数 |
 | ordinary 模型，$u/n^2\to\infty$ | $H\ge1.198n-o(n)$ | 本仓库：multicut prefix-union theorem | 一般、无条件；证明只用 fresh insertions，因此也适用于 incremental filters |
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |
@@ -110,7 +120,9 @@ multiset 的高效动态熵编码上界，但没有给出 constant-error arbitra
 ## 不是当前定理的数字
 
 - $1.13$ 是 Lovett--Porat 文中的 computer-search remark，不是已认证定理。
-- 原始模型的新常数可严格取 $2^{-48}$；这是解析证明中的保守 witness，不是优化值。
+- 原始模型的新常数可严格取 $2^{-20}$；这是 $\sqrt\gamma$-tails 优化的显式解析
+  witness（见 `focs-paper/`），不是该框架的极限值。旧的 $2^{-48}$ witness 已被它
+  改进，不再单独引用。
 - $C_{\mathrm{AP}}>1.607987\ldots$ 现在是 $u/n^2\to\infty$ 且
   $f(n)/n\to\infty$ 下的最强 all-pivot 定理；它仍不是原始
   $u/n\to\infty$ 条件下的下界。
@@ -168,8 +180,12 @@ canonical-state 假设，也没有使用 growing-depth tree。
 - [Finite lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
 
 强宇宙条件已经通过 simultaneous replacement-cover width theorem 降到原始的
-$u/n\to\infty$，但目前只得到显式增益 $2^{-48}$，还没有接近
-$C_{\mathrm{AP}}$。新证明不再要求一个 hard-union witness 同时避开全部 suffix；它对
+$u/n\to\infty$，显式增益已从最初的 $2^{-48}$ 优化到 $2^{-20}$（$\sqrt\gamma$
+tails + $\alpha\to1-\varepsilon$ 覆盖界，见
+[`focs-paper/CONSTANT_OPTIMIZATION_SQRT_TAILS.md`](./focs-paper/CONSTANT_OPTIMIZATION_SQRT_TAILS.md)），
+但还没有接近 $C_{\mathrm{AP}}$。该框架的结构性封顶与 multicut KL-posterior 融合的
+精确失败点见 [`focs-paper/FUSION_ANALYSIS_AND_PSW_CHECK.md`](./focs-paper/FUSION_ANALYSIS_AND_PSW_CHECK.md)。
+新证明不再要求一个 hard-union witness 同时避开全部 suffix；它对
 每个 replacement branch 分别做 posterior pruning，并用一次 KL chain rule 统一收费。
 这正是消除旧 $n^2/u$ collision 门槛的关键。
 
@@ -205,8 +221,11 @@ density 的唯一 regular-variation 指数 $1$ 与不可消除的 $v\log v$ boun
 本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。下一步真正需要
 的是以下任一项：
 
-1. 显著改进 natural-universe theorem 当前保守的 $2^{-48}$，并尽量
-   向 $C_{\mathrm{AP}}$ 靠近；
+1. 显著改进 natural-universe theorem 的 witness 常数并尽量向 $C_{\mathrm{AP}}$ 靠近。
+   常数已从 $2^{-48}$ 改进到 $2^{-20}$（`focs-paper/`，机器验证），且已论证该
+   replacement-cover 框架封顶在 $2^{-\Theta(1)}$：向 $C_{\mathrm{AP}}$ 级别的推进
+   需要绕过 $\Theta(n^2/u)$ witness--future 碰撞损失的新机制（见
+   [`focs-paper/FUSION_ANALYSIS_AND_PSW_CHECK.md`](./focs-paper/FUSION_ANALYSIS_AND_PSW_CHECK.md)）；
 2. 给出 matching lower/upper bound，从而确定某个明确模型的最优一阶常数；
 3. 证明 all-active regularity 和 matching adjoint potential，从而解析识别
    $C_{\mathrm{AP}}$；
@@ -216,6 +235,9 @@ density 的唯一 regular-variation 指数 $1$ 与不可消除的 $v\log v$ boun
 
 - [详细结果分类与来源](./docs/README.md)
 - `docs/`：定理、审计、反例、barrier 与研究笔记。
+- `focs-paper/`：FOCS 论文包——witness 常数优化（$2^{-48}\to2^{-20}$）、一般
+  $\varepsilon$ 推广、multicut 融合分析、外部文献与 hostile audit 记录、验证脚本
+  （[索引](./focs-paper/README.md)）。
 - `scripts/`：精确证书验证器与探索程序。
 
 运行主要验证器：
