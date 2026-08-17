@@ -41,7 +41,7 @@ $$
 | 模型或额外条件 | 半误差下界 | 来源 | 准确地位 |
 |---|---:|---|---|
 | 原始 ordinary 模型，$u/n\to\infty$ | $H\ge n-o(n)$ | 外部文献：Carter 静态基线 | 一般、无条件 |
-| ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge1.6079n-o(n)$ | 本仓库：full-fiber all-pivot converse | 一般、无额外结构假设；比原始模型多用了强宇宙和超线性 horizon 条件 |
+| ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge C_{\mathrm{AP}}n-o(n)$，其中 $C_{\mathrm{AP}}>1.607987002861718\ldots$ | 本仓库：continuous full-fiber all-pivot converse | 在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；$C_{\mathrm{AP}}$ 是完整 finite hierarchy 的严格极限，不是新挑选的有限 block 常数 |
 | ordinary 模型，$u/n^2\to\infty$ | $H\ge1.198n-o(n)$ | 本仓库：multicut prefix-union theorem | 一般、无条件；证明只用 fresh insertions，因此也适用于 incremental filters |
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |
 | history-dependent monotone 子类，$u/n\to\infty$ | $H\ge1.1992732344471508\ldots n-o(n)$ | 本仓库对 KLZ Proposition 4.3 的固定误差审计与 AND 推论 | 不是 ordinary nonmonotone 下界 |
@@ -50,7 +50,8 @@ $$
 
 相关文件：
 
-- [$1.6079$ all-pivot theorem](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
+- [Continuous all-pivot variational limit](./docs/CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)
+- [$1.6079$ finite all-pivot predecessor](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
 - [$1.6079$ lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
 - [$1.198$ multicut theorem](./docs/MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md)
 - [$1.198$ hostile audit](./docs/MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md)
@@ -104,28 +105,46 @@ multiset 的高效动态熵编码上界，但没有给出 constant-error arbitra
 ## 不是当前定理的数字
 
 - $1.13$ 是 Lovett--Porat 文中的 computer-search remark，不是已认证定理。
-- $1.6079$ 现在只是在 $u/n^2\to\infty$ 且 $f(n)/n\to\infty$ 下的定理；它不是
-  原始 $u/n\to\infty$ 条件下的下界。
+- $C_{\mathrm{AP}}>1.607987\ldots$ 现在是 $u/n^2\to\infty$ 且
+  $f(n)/n\to\infty$ 下的最强 all-pivot 定理；它仍不是原始
+  $u/n\to\infty$ 条件下的下界。
 - $2.200611\ldots$ 不能写成任意长历史 fixed-worst-case 上界。
 - $2.287904\ldots$ 不能写成每张随机带都满足的固定空间上界。
 - $2.34614905664$ 是当前严格上界，不是 ordinary 模型的最优值或下界。
 - $2.345979662\ldots$ 是两层 Pair hierarchy 的数值侦察；尚无独立 theorem package，
   不列入主区间。
 
-## Research TODO：$1.6079$ all-pivot 路线
+## Research frontier：continuous all-pivot 与自然宇宙
 
-已经完成的有限证书是
+完整 finite Jensen hierarchy 现在已经解析闭合。令
 
 $$
-C_{10}
-\ge
-1.607987002861718\ldots
->
-1.6079.
+C_{\mathrm{AP}}
+=
+\inf_{x\uparrow}
+\sup_{0\le t\le1}\mathcal F_t[x].
+$$
+
+则连续 value-space game 的 infimum attained，并且对每个有限 $q$，
+
+$$
+C_q<C_{\mathrm{AP}},
+\qquad
+\lim_{q\to\infty}C_q=C_{\mathrm{AP}}.
+$$
+
+严格 gap 来自 diagonal logarithmic singularity：任何让有限 Jensen reduction
+取等的 block-flat profile，都会被 block 内部的 pivot 以无穷代价识别。因此这不是
+增加到 $20$ 或 $50$ blocks 后的数值爬升，而是整个 all-pivot hierarchy 的精确
+variational limit。结合旧的 $C_{10}$ 证书，严格得到
+
+$$
+C_{\mathrm{AP}}>C_{10}
+\ge1.607987002861718\ldots .
 $$
 
 two-stage partition conditioning、full-fiber common-suffix transport、exact batch code
-和全部 pivots 的统一误差已经重新审计。在
+和全部 fixed finite pivots 的统一误差已经重新审计。在
 
 $$
 \frac{u}{n^2}\to\infty,
@@ -133,11 +152,16 @@ $$
 \frac{f(n)}n\to\infty
 $$
 
-时，它们把上述凸证书提升为 ordinary、history-dependent、nonmonotone dynamic
-filter 的下界 $H\ge1.6079n-o(n)$。这里没有 BSSI、monotonicity 或 canonical-state
-假设。
+时，先对每个固定 $q$ 应用 finite theorem，再在 $n\to\infty$ 后取
+$q\to\infty$，得到 ordinary、history-dependent、nonmonotone dynamic filter 的
+下界 $H\ge C_{\mathrm{AP}}n-o(n)$。这里没有 BSSI、monotonicity 或
+canonical-state 假设，也没有使用 growing-depth tree。
 
-真正未完成的是把强宇宙条件降到原始的 $u/n\to\infty$。当前 hard-union transport
+- [Continuous value game and exact lifting](./docs/CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)
+- [Finite $C_{10}$ theorem](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
+- [Finite lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
+
+仍未完成的是把强宇宙条件降到原始的 $u/n\to\infty$。当前 hard-union transport
 在 suffix witness collision 上支付约 $n^2$ 的损失；已有 avalanche、posterior deficit
 和 rank-volume 引理尚不能把多个 operational parents 的损失统一收费。下一步需要的
 是 simultaneous replacement-response width / transition-overlap 定理，或者一个证明
@@ -151,25 +175,31 @@ $$
 
 其中 $V_\lambda$ 是条件于已有 full-fiber candidate list 后，future response 对 hidden
 batches 携带的 conditional mutual information。任何 $V_\lambda\ge\eta n$ 的一般定理
-都会把 $1.6079$ 提高 $\eta$；但 cylinder-complete fibers 证明 fixed-depth local probes
-可以有 $V_\lambda=0$，即使 exact rank 几乎是线性的。因此下一步必须是 linear-depth
+都会把该 finite $C_{10}$ branch 提高 $\eta$；它并不能自动加到新的
+$C_{\mathrm{AP}}$ 上。cylinder-complete fibers 还证明 fixed-depth local probes 可以有
+$V_\lambda=0$，即使 exact rank 几乎是线性的。因此下一步必须是 linear-depth
 recurrent response 或跨 state 的 transversality theorem，而不是再加一个 marginal rank。
 
 - [Normalized-dual conditional novelty theorem](./docs/NORMALIZED_DUAL_CONDITIONAL_NOVELTY_2026_08_17.md)
 - [Future-visible double-charge barrier](./docs/ALL_PIVOT_FUTURE_VISIBLE_DOUBLE_CHARGE_BARRIER_2026_08_17.md)
 
-Continuous all-pivot tail equation 的 numerical location 约为 $1.7156$，但这不是当前
-下界。已经严格证明的是 endpoint density 的唯一 regular-variation exponent 为 $1$，
-且存在不可消除的 $v\log v$ boundary layer；这排除了 naive smooth-ODE 解法。
+若 attained optimizer 具有 positive Dini density 且 all pivots active，则对应 tail
+Volterra equation 的 normalized 正解至多一个；这是由严格正 kernel 的 maximum
+principle 推出的解析唯一性。该解的 numerical location 约为 $1.7156$，但这个小数
+仍不是 theorem。已经严格证明的还包括 endpoint density 的唯一 regular-variation
+指数 $1$ 与不可消除的 $v\log v$ boundary layer。
 
+- [Continuous variational-limit theorem](./docs/CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)
 - [Continuous endpoint boundary theorem](./docs/CONTINUOUS_ALL_PIVOT_ENDPOINT_BOUNDARY_2026_08_17.md)
 
-本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。只有以下任一项
-完成后，才改变下界主常数或宣称目标问题取得本质突破：
+本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。下一步真正需要
+的是以下任一项：
 
 1. 在仅 $u/n\to\infty$ 下得到一般系数严格大于 $1$ 的下界；
 2. 给出 matching lower/upper bound，从而确定某个明确模型的最优一阶常数；
-3. 证明覆盖 all-pivot/transport/posterior 方法的结构性 barrier theorem。
+3. 证明 all-active regularity 和 matching adjoint potential，从而解析识别
+   $C_{\mathrm{AP}}$；
+4. 证明覆盖 transport/posterior 方法的结构性 barrier theorem。
 
 ## 仓库导航
 

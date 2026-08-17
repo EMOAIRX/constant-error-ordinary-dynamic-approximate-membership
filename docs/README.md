@@ -33,7 +33,7 @@ $$
 
 | 条件 | 半误差结论 | 类型 | 文件或来源 |
 |---|---:|---|---|
-| $u/n^2\to\infty$，$f(n)/n\to\infty$，ordinary | $H\ge1.6079n-o(n)$ | **本仓库定理**，无额外结构假设 | [all-pivot theorem](./EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md), [closure audit](./ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md) |
+| $u/n^2\to\infty$，$f(n)/n\to\infty$，ordinary | $H\ge C_{\mathrm{AP}}n-o(n)$，$C_{\mathrm{AP}}>1.607987002861718\ldots$ | **本仓库定理**；在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；continuous hierarchy 的严格极限 | [continuous theorem](./CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md), [finite predecessor](./EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md) |
 | $u/n^2\to\infty$，ordinary | $H\ge1.198n-o(n)$ | **本仓库定理**，无额外结构假设 | [multicut theorem](./MULTICUT_PREFIX_UNION_LOWER_BOUND_2026_08_16.md), [audit](./MULTICUT_PREFIX_UNION_HOSTILE_AUDIT_2026_08_16.md) |
 | $u/n\to\infty$，BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | **本仓库条件定理** | [theorem](./BOUNDED_SOURCE_SECTION_INFLUENCE_NATURAL_UNIVERSE_LOWER_BOUND_2026_08_15.md), [audit](./BOUNDED_SOURCE_SECTION_INFLUENCE_HOSTILE_AUDIT_2026_08_15.md) |
 | $u/n\to\infty$，history-dependent monotone | $H\ge1.1992732344471508\ldots n-o(n)$ | **本仓库对 KLZ 的受限子类推论** | [amplification audit](./AMPLIFICATION_FRONTIER_HOSTILE_AUDIT_2026_08_13.md) |
@@ -129,9 +129,12 @@ filter constant-error lower bound。
 - [Joint transportable-section rank-volume theorem](./JOINT_REPLACEMENT_RANK_VOLUME_LOWER_BOUND_2026_08_16.md)：jointly 编码 replacement labels 与 survivors，得到非负 rank premium。
 - [Exact right-congruence minimax](./RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md)：给出有限参数最优空间的精确 LP/minimax characterization。
 - [Normalized-dual conditional novelty](./NORMALIZED_DUAL_CONDITIONAL_NOVELTY_2026_08_17.md)：把 future-response information 合法嵌入 all-pivot dual；finite-depth cylinder theorem 同时给出 sharp local no-go。
+- [Continuous all-pivot variational limit](./CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)：证明 finite hierarchy 严格收敛到 attained constant $C_{\mathrm{AP}}$，且 $C_q<C_{\mathrm{AP}}$ 对每个有限 $q$ 成立。
 - [Continuous all-pivot endpoint boundary](./CONTINUOUS_ALL_PIVOT_ENDPOINT_BOUNDARY_2026_08_17.md)：证明 endpoint exponent 必为 $1$，并求出 $v\log v$ boundary layer；$1.7156$ 仍只是 numerical location。
 
-它们不是新的 universal numerical lower bound，不能单独填进 Section 1 的区间。
+其中 continuous all-pivot theorem 已作为严格的 symbolic coefficient lower bound
+列入 Section 2；它仍受 $u/n^2\to\infty$ 限制。其余结构结果不能单独填进
+Section 1 的原始模型区间。
 
 ## 6. 已关闭的错误组合方式
 
@@ -150,14 +153,14 @@ filter constant-error lower bound。
 | 数字 | 原因 |
 |---:|---|
 | $1.13$ | Lovett--Porat computer-search remark，不是正式证书 |
-| $1.6079$ under only $u/n\to\infty$ | 当前定理需要 $u/n^2\to\infty$ 和确定的超线性 horizon；自然宇宙推广仍未闭合 |
+| $C_{\mathrm{AP}}$ under only $u/n\to\infty$ | 当前定理仍需要 $u/n^2\to\infty$ 和确定的超线性 horizon；自然宇宙推广未闭合 |
 | $1.199273$ ordinary | 只证明于 monotone 子类；ordinary nonmonotone lifting 有 partition-dependence gap |
 | $2.200611$ arbitrary infinite history | 当前只在受限 horizon 或 whp-resource 语义成立 |
 | $2.287904$ fixed-worst-case | 外部 entropy-array theorem 给的是 whp space/time |
 | $2.349083$ current upper | 已被 cross-block mod-$6$ 的严格 $2.34614905664$ 改进 |
 | $2.346149$ optimum | 目前只是可实现上界；matching lower bound 仅在某些 restricted quotient classes 内成立 |
 | $2.345979662$ theorem | 目前只是两层 Pair hierarchy 数值侦察，尚无独立 theorem package |
-| $1.7156$ lower bound | 只是 continuous all-pivot tail equation 的 numerical location，奇异极限尚未闭合 |
+| $1.7156$ as a proved decimal | $C_{\mathrm{AP}}$ 的 variational limit 已闭合，但该小数仍只是 all-active equation 的 numerical location；尚未证明 decimal enclosure |
 
 Kuszmaul--Walzer 2024 的精确线性余项暂不在本页列小数：KLZ arXiv v1 中展示的
 公式含一个 $1/2$ 因子时数值约为 $0.1785n$，但相邻文字写“约 $0.35n$”。在核到
