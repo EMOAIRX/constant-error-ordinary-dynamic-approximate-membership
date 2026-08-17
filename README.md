@@ -49,11 +49,12 @@ $$
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |
 | history-dependent monotone 子类，$u/n\to\infty$ | $H\ge1.1992732344471508\ldots n-o(n)$ | 本仓库对 KLZ Proposition 4.3 的固定误差审计与 AND 推论 | 不是 ordinary nonmonotone 下界 |
 | Lovett--Porat 原模型，$\varepsilon=1/2$，$n/u\to0$ | $H\ge1.1n-o(n)$ | 外部文献：Lovett--Porat 2010/2013 | 原 hard distribution 允许重复 labels；不能不加说明地当作 KLZ fresh-distinct API 定理 |
-| dense universe：$u=2n$ | $H\ge0.6225562489\ldots n-o(n)$ | 外部静态 finite-universe covering bound（ChainedFilter/Carter-type counting） | 目前也是一般 dynamic 模型唯一无条件下界；本仓库有 $H\le n$ 的任意长历史构造 |
+| dense universe：$u=2n$ | $H\ge0.6225562489\ldots n-o(n)$ | 外部静态 finite-universe covering bound（ChainedFilter/Carter-type counting） | 该 dense-universe regime 的一般下界；本仓库有 $H\le n$ 的任意长历史构造 |
 
 相关文件：
 
 - [Natural-universe simultaneous replacement theorem](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
+- [Natural-universe theorem hostile audit](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_HOSTILE_AUDIT_2026_08_17.md)
 - [Continuous all-pivot variational limit](./docs/CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)
 - [$1.6079$ finite all-pivot predecessor](./docs/EQUAL_BLOCK_ALL_PIVOT_CONVERSE_2026_08_13.md)
 - [$1.6079$ lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)

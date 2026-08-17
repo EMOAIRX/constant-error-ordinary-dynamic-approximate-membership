@@ -2,6 +2,11 @@
 
 > 日期：2026-08-13。状态：Sections 2--4 是严格有限状态归约与恒等式。裁决是：累计 directed information / transcript entropy 不能下界 persistent width；它测量可无限重复的信息耗散。完整 ordinary dynamic AMQ lower bound 精确等价于 randomized right-congruent cover branching program 的 width lower bound。本文没有证明该 width 超过 Carter；它明确隔离了所需的新组合定理。
 
+> 2026-08-17 update：所缺的 width theorem 已由
+> [simultaneous replacement-cover theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
+> 闭合为 $H\ge(1+2^{-48})n-o(n)$，只需 $u/n\to\infty$。下文的 stationary identity
+> 与 no-go 仍成立，但“不超过 Carter”只描述本文当时的结论，不再是仓库当前结论。
+
 所有 logarithms 以 2 为底。
 
 ## 1. Replacement hard process

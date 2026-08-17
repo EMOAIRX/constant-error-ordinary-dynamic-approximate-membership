@@ -32,6 +32,9 @@ $$
 | $H\le2.349083440193\ldots n+o(n)$ | **本仓库旧定理**：order-$3$ algebraic threshold quotient；已被上一行改进 | [baseline](./VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md) |
 | finite-parameter optimum 的 randomized right-congruence minimax characterization | **本仓库结构定理**；尚无显式渐近常数 | [right-congruence variational theorem](./RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md) |
 
+新下界的独立量词、常数和反例审计见
+[replacement-cover hostile audit](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_HOSTILE_AUDIT_2026_08_17.md)。
+
 ## 2. 下界：条件改变后
 
 | 条件 | 半误差结论 | 类型 | 文件或来源 |
@@ -124,10 +127,11 @@ resource 语义下实现 uniform Poisson fingerprint entropy rate和 $O(1)$ oper
 它解决了 KLZ 提出的 uniform-multiset efficient coding 子问题，但不解决 arbitrary-
 filter constant-error lower bound。
 
-## 5. 一般 structural theorems
+## 5. 主定理依赖与一般 structural theorems
 
-以下结果无额外 BSSI 假设并且 finite-parameter 严格成立，但目前只给结构会计：
+以下先列新下界闭合的 replacement-width 接口，再列仍只提供结构会计的通用定理：
 
+- [Simultaneous replacement-cover width](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)：把此前缺失的 extensive replacement-width 接口闭合为原始模型下的显式严格 gap；它已列入 Section 1，不只是结构 lemma。
 - [Full-fiber transport-information dichotomy](./FULL_FIBER_TRANSPORT_INFORMATION_DICHOTOMY_2026_08_13.md)：在 $u/n\to\infty$ 下把 union destruction 记为 entropy deficit。
 - [Operational avalanche-or-information theorem](./OPERATIONAL_SUPPORT_COMPLETION_AVALANCHE_LOWER_BOUND_2026_08_16.md)：常数概率、常数比例 avalanche 产生显式 dynamic premium。
 - [Joint transportable-section rank-volume theorem](./JOINT_REPLACEMENT_RANK_VOLUME_LOWER_BOUND_2026_08_16.md)：jointly 编码 replacement labels 与 survivors，得到非负 rank premium。
@@ -158,7 +162,7 @@ Section 1 的原始模型区间。
 | 数字 | 原因 |
 |---:|---|
 | $1.13$ | Lovett--Porat computer-search remark，不是正式证书 |
-| $C_{\mathrm{AP}}$ under only $u/n\to\infty$ | 当前定理仍需要 $u/n^2\to\infty$ 和确定的超线性 horizon；自然宇宙推广未闭合 |
+| $C_{\mathrm{AP}}$ under only $u/n\to\infty$ | $C_{\mathrm{AP}}$ 的 lifting 仍需要 $u/n^2\to\infty$ 和确定的超线性 horizon；新 replacement-cover theorem 只给 $1+2^{-48}$，尚未把 $C_{\mathrm{AP}}$ 推到自然宇宙 |
 | $1.199273$ ordinary | 只证明于 monotone 子类；ordinary nonmonotone lifting 有 partition-dependence gap |
 | $2.200611$ arbitrary infinite history | 当前只在受限 horizon 或 whp-resource 语义成立 |
 | $2.287904$ fixed-worst-case | 外部 entropy-array theorem 给的是 whp space/time |

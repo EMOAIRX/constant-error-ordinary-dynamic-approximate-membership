@@ -3,6 +3,11 @@
 > 日期：2026-08-13。状态：一般模型的 formulation 与路线裁决。本文不把任何
 > 有限宇宙计算包装成主结果；所有正面主命题均明确标为开放。
 
+> 2026-08-17 update：本文 Section 6 隔离的 extensive replacement-width 目标已经由
+> [simultaneous replacement-cover theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
+> 闭合，得到原始模型下 $H\ge(1+2^{-48})n-o(n)$。本文保留为此前 barrier 与
+> formulation 的历史记录；“尚未证明超过 Carter”的判断不再代表当前 frontier。
+
 ## 1. 目标
 
 固定常数误差 \(0<\varepsilon<1\)，考虑容量 \(n\)、

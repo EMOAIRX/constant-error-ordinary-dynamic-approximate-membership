@@ -4,6 +4,12 @@
 > zero-FN、public-tape、key-only updates、pointwise FPR，允许 arbitrary history
 > dependence、multiple representations、ghosts 和 global certificates。
 
+> 2026-08-17 update：本文提出的 simultaneous successor-width 目标已经由
+> [replacement-cover theorem](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
+> 实现，原始 natural-universe 模型现在有
+> $H\ge(1+2^{-48})n-o(n)$。本文关于有限 gadget、重复计费和 upper-bound taste 的
+> barrier 判断仍保留；Section 1.3 的“尚未超过 Carter”已被新定理取代。
+
 ## 1. 结论先行
 
 当前工作不是“没有贡献”，但三个不同层次必须分开。

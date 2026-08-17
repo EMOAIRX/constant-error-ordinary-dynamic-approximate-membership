@@ -23,8 +23,13 @@ $$
 H\ge (1+\eta_0)n-o(n)
 $$
 
-whenever $u/n\to\infty$. The $o(n)$ term is uniform along every sequence of
-instances with $u/n\to\infty$.
+whenever $u/n\to\infty$. Precisely, for every sequence
+$(n_j,u_j)$ with $n_j\to\infty$ and $u_j/n_j\to\infty$,
+
+$$
+\liminf_{j\to\infty}\frac{H^*_{1/2}(n_j,u_j)}{n_j}
+\ge1+\eta_0.
+$$
 
 One explicit, deliberately unoptimized choice is
 
@@ -112,7 +117,7 @@ $$
 $$
 
 The same argument applied to the tape-independent successor experiment gives
-the same two conclusions for $a_{Z'}$.
+the corresponding accepted-size and entropy-deficit bounds at the successor.
 
 Here is an exact stability argument. Set
 
@@ -188,6 +193,11 @@ $$
 \le d_z.
 \tag{2}
 $$
+
+The expectation in (2) is under the actual $(D,I)$ law conditioned on $Z=z$.
+It does not assert that the reference marginal of $I$ is uniform. Uniformity of
+the insertion sets is used only after Fubini fixes the actual source $s$ in
+Section 5.
 
 Since a distribution supported on $\binom{V}{k}$ has entropy at most
 $\log\binom vk$, (2) implies
@@ -358,9 +368,25 @@ $$
 |A'\setminus A|\le3\tau u+o(u).
 $$
 
+Indeed, $b=a-q-|I\cap A|\ge a-n$, and hence
+
+$$
+\frac vu
+\ge(1/2-\tau-o(1))2^{-2\tau^2}.
+$$
+
+For sufficiently small fixed $\tau$,
+
+$$
+(1/2+\tau)-(1/2-\tau)2^{-2\tau^2}
+\le3\tau.
+$$
+
 The hypergeometric exception is exponentially small. Hence, for sufficiently
 small fixed $\gamma$, Fubini leaves at least one half of the $N$ insertion sets
-good. With $s_0=\lceil q/3\rceil$, the deliberately crude estimates
+good: the two size exceptions contribute $O(\sqrt\gamma)+o(1)$ each, the KL
+exception contributes $O(\sqrt\gamma)+o(1)$, and the remaining tail is
+$\exp(-\Omega(n))$. With $s_0=\lceil q/3\rceil$, the deliberately crude estimates
 
 $$
 \binom q{s_0}\le2^q,
@@ -388,6 +414,9 @@ $$
 which contradicts $H/n\le1+2^{-48}$ for all sufficiently large instances.
 Thus Theorem 1 holds with $\eta_0=2^{-48}$. This witness is intentionally
 conservative; optimizing it is a separate problem.
+
+The detailed quantifier and constant audit is recorded separately in
+[the hostile audit](./SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_HOSTILE_AUDIT_2026_08_17.md).
 
 ## 8. Why this is not the old $u/n^2$ argument
 
