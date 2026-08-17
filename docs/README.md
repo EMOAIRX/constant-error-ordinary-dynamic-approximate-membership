@@ -131,6 +131,7 @@ filter constant-error lower bound。
 - [Normalized-dual conditional novelty](./NORMALIZED_DUAL_CONDITIONAL_NOVELTY_2026_08_17.md)：把 future-response information 合法嵌入 all-pivot dual；finite-depth cylinder theorem 同时给出 sharp local no-go。
 - [Continuous all-pivot variational limit](./CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)：证明 finite hierarchy 严格收敛到 attained constant $C_{\mathrm{AP}}$，且 $C_q<C_{\mathrm{AP}}$ 对每个有限 $q$ 成立。
 - [Continuous all-pivot endpoint boundary](./CONTINUOUS_ALL_PIVOT_ENDPOINT_BOUNDARY_2026_08_17.md)：证明 endpoint exponent 必为 $1$，并求出 $v\log v$ boundary layer；$1.7156$ 仍只是 numerical location。
+- [Continuous optimality and thick-fiber upper barrier](./CONTINUOUS_OPTIMALITY_AND_THICK_FIBER_UPPER_BARRIER_2026_08_17.md)：证明 finite minimizer 唯一、adjacent-difference Jacobian 是 nonsingular $M$-matrix，并排除 complete thick fibers 加 tight unions 的 matching-upper 路线。
 
 其中 continuous all-pivot theorem 已作为严格的 symbolic coefficient lower bound
 列入 Section 2；它仍受 $u/n^2\to\infty$ 限制。其余结构结果不能单独填进

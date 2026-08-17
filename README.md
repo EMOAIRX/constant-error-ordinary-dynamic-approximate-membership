@@ -183,14 +183,16 @@ recurrent response 或跨 state 的 transversality theorem，而不是再加一�
 - [Normalized-dual conditional novelty theorem](./docs/NORMALIZED_DUAL_CONDITIONAL_NOVELTY_2026_08_17.md)
 - [Future-visible double-charge barrier](./docs/ALL_PIVOT_FUTURE_VISIBLE_DOUBLE_CHARGE_BARRIER_2026_08_17.md)
 
-若 attained optimizer 具有 positive Dini density 且 all pivots active，则对应 tail
-Volterra equation 的 normalized 正解至多一个；这是由严格正 kernel 的 maximum
-principle 推出的解析唯一性。该解的 numerical location 约为 $1.7156$，但这个小数
-仍不是 theorem。已经严格证明的还包括 endpoint density 的唯一 regular-variation
-指数 $1$ 与不可消除的 $v\log v$ boundary layer。
+若 attained optimizer 具有 positive all-active density，并满足已推导的 endpoint
+regular-variation law，则对应 tail Volterra equation 的 normalized 正解至多一个；
+这是由严格正 kernel 的 maximum principle 推出的解析唯一性。仅有 interior Dini
+regularity 还不够，必须保证两个正解之比在 endpoint 有有限正极限。该解的 numerical
+location 约为 $1.7156$，但这个小数仍不是 theorem。已经严格证明的还包括 endpoint
+density 的唯一 regular-variation 指数 $1$ 与不可消除的 $v\log v$ boundary layer。
 
 - [Continuous variational-limit theorem](./docs/CONTINUOUS_ALL_PIVOT_VARIATIONAL_LIMIT_2026_08_17.md)
 - [Continuous endpoint boundary theorem](./docs/CONTINUOUS_ALL_PIVOT_ENDPOINT_BOUNDARY_2026_08_17.md)
+- [Finite analytic structure and thick-fiber upper barrier](./docs/CONTINUOUS_OPTIMALITY_AND_THICK_FIBER_UPPER_BARRIER_2026_08_17.md)
 
 本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。下一步真正需要
 的是以下任一项：

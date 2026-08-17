@@ -433,9 +433,10 @@ proof.
 ## 8. All-active equation and uniqueness
 
 The main theorem above does not assume that every pivot is active or that the
-optimizer has a density. If an attained optimizer has a positive Dini density
-$\rho$ and all pivots are active, then comparison with the endpoint pivot
-gives the tail equation
+optimizer has a density. If an attained optimizer has a positive density
+$\rho$, all pivots are active, and the corresponding endpoint density is Dini
+with a finite positive limit, then comparison with the endpoint pivot gives
+the tail equation
 
 $$
 \int_a^1
@@ -473,9 +474,11 @@ $$
 \right].
 $$
 
-There is at most one normalized positive Dini solution. Indeed, if $r_1,r_2$
-are two positive solutions, differentiating with the same cutoff at
-$v=u$ gives the finite-part identity
+There is at most one normalized positive Dini solution among solutions for
+which $r_1(u)/r_2(u)$ has a finite positive limit as $u\downarrow0$. In
+particular, this applies when both solutions satisfy the endpoint
+regular-variation law in the companion note. Indeed, differentiating with the
+same cutoff at $v=u$ gives the finite-part identity
 
 $$
 0
@@ -517,9 +520,12 @@ W(u,v)
 >0.
 $$
 
-At a strict past maximum or minimum of $q$, the integrand has one sign and is
-strict on a set of positive measure, a contradiction. Hence $q$ is constant,
-and normalization makes the solution unique.
+The endpoint ratio limit lets the running maximum/minimum argument start at
+$u=0$. If $q$ were nonconstant, its first running extremum away from that
+limit would make the integrand have one sign and be strict on a set of
+positive measure, a contradiction. Hence $q$ is constant, and normalization
+makes the solution unique. Without an endpoint ratio limit, interior Dini
+regularity alone does not justify this maximum-principle step.
 
 The endpoint expansion already proved in the companion note,
 
