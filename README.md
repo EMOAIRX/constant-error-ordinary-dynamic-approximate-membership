@@ -3,17 +3,73 @@
 本仓库研究 Kuszmaul--Liang--Zhou（FOCS 2025）留下的 fixed-constant-error
 ordinary dynamic approximate membership 问题。
 
-## 原始模型：当前真正可比较的一对界
+## 原始模型：当前主结论
 
-这里的原始模型指：容量 $n$、$u/n\to\infty$、任意长合法
-Insert/Delete 历史、固定最坏持久空间、免费公共随机带、zero false negatives，
-以及对每条固定历史和每个固定当前非成员的 pointwise FPR 至多 $1/2$。
+原始模型指：容量 $n$、$u/n\to\infty$、任意长合法 Insert/Delete 历史、固定最坏
+持久空间、免费公共随机带、zero false negatives，以及对每条固定历史和每个固定当前
+非成员的 pointwise FPR 至多固定 $\varepsilon\in(0,1)$。
 
-若 $H^*_{1/2}(n,u)$ 表示这个模型的最优空间，则当前可引用的区间是
+令
+
+$$
+\beta=1-\varepsilon,
+\qquad
+\ell=\log_2(1/\varepsilon),
+\qquad
+\sigma=\min\{\varepsilon,\beta\},
+\qquad
+B_0=4\ln2+1.
+$$
+
+对 $0<t\le\sigma/4$ 定义
+
+$$
+\rho_\varepsilon(t)
+=\varepsilon+t-(\varepsilon-t)2^{-2t^2},
+\qquad
+\alpha_\varepsilon(t)=\beta-t,
+$$
+
+$$
+\Psi_\varepsilon(t)
+=\frac{\alpha_\varepsilon(t)}2
+\log_2\frac{\alpha_\varepsilon(t)}{e\rho_\varepsilon(t)}.
+$$
+
+方程
+
+$$
+\Psi_\varepsilon(t)=\ell+\frac{t^2}{B_0}
+$$
+
+在 $(0,\sigma/4)$ 中有唯一解 $t^*_\varepsilon$。令
+
+$$
+\Gamma_\varepsilon
+=\frac{(t^*_\varepsilon)^2}{B_0\ell}>0.
+$$
+
+则当前下界是
 
 $$
 \boxed{
-(1+2^{-48})n-o(n)
+H^*_\varepsilon(n,u)
+\ge
+(1+\Gamma_\varepsilon)n\log_2(1/\varepsilon)-o(n).
+}
+$$
+
+这是一个统一的 fixed-$\varepsilon$ 定理；$\varepsilon=1/2$ 只是同一解析方程的直接
+代入。定理不选择 $2^{-20}$、$2^{-48}$ 或任何其它 dyadic witness，也不使用数值求根。
+$B_0$ 正好来自统一阈值证明中的两次 accepted-size 偏差和一次 posterior-KL 偏差，
+而 $\rho_\varepsilon(t)$ 是 support thickness 直接给出的、未经线性松弛的
+successor-reservoir density 上界。
+
+在半误差下，当前真正可比较的一对无条件界是
+
+$$
+\boxed{
+(1+\Gamma_{1/2})n-o(n)
 \le
 H^*_{1/2}(n,u)
 \le
@@ -21,21 +77,18 @@ H^*_{1/2}(n,u)
 }
 $$
 
-这里 $2^{-48}$ 是证明直接给出的、刻意未优化的绝对常数；它不是数值搜索结果。
-
 | 方向 | 结论 | 来源 | 状态 |
 |---|---:|---|---|
-| 下界 | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width theorem | 无条件；只假设 $u/n\to\infty$，允许 arbitrary history dependence |
-| 上界 | $H\le2.34614905664n+o(n)$ | 本仓库：cross-block mod-$6$ additive quotient | 无条件；任意长历史、无 overflow、固定最坏空间 |
+| 下界 | $H\ge(1+\Gamma_\varepsilon)n\log_2(1/\varepsilon)-o(n)$ | 本仓库：canonical fixed-$\varepsilon$ replacement-cover theorem | 无条件；只假设 $u/n\to\infty$，允许 arbitrary history dependence |
+| 上界（$\varepsilon=1/2$） | $H\le2.34614905664n+o(n)$ | 本仓库：cross-block mod-$6$ additive quotient | 无条件；任意长历史、无 overflow、固定最坏空间 |
 
-- [当前下界定理](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
+- [统一 fixed-$\varepsilon$ 下界与完整证明](./docs/CANONICAL_FIXED_EPSILON_REPLACEMENT_COVER_2026_08_18.md)
+- [simultaneous replacement-cover 基础定理](./docs/SIMULTANEOUS_REPLACEMENT_COVER_WIDTH_LOWER_BOUND_2026_08_17.md)
 - [当前上界定理](./docs/CROSS_BLOCK_MOD6_CONSTRUCTION_2026_08_13.md)
 - [独立 hostile audit](./docs/TWO_SUBBLOCK_MODULUS_INDEPENDENT_AUDIT_2026_08_13.md)
-- [被改进的 order-$3$ baseline](./docs/VERIFIED_ALGEBRAIC_THRESHOLD_QUOTIENT_2026_08_13.md)
-- [精确 right-congruence 变分刻画](./docs/RIGHT_CONGRUENCE_GLOBAL_VARIATIONAL_2026_08_13.md)
 
-因此，原始 ordinary 模型的静态 $n$-bit barrier 已被严格突破；目前仍未确定
-下界增益的最佳值，也没有证明 $2.34614905664$ 最优。
+因此，原始 ordinary 模型在每个固定错误率下都严格超过 Carter 静态基线；目前仍未
+确定下界增益的最佳值，也没有证明半误差上界 $2.34614905664$ 最优。
 
 ## 改变条件后的下界
 
@@ -43,7 +96,7 @@ $$
 
 | 模型或额外条件 | 半误差下界 | 来源 | 准确地位 |
 |---|---:|---|---|
-| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+2^{-48})n-o(n)$ | 本仓库：simultaneous replacement-cover width | 一般、无条件；据我们所知，首个在 KLZ legal-update 模型中严格超过 Carter 静态基线的结果 |
+| 原始 ordinary 模型，$u/n\to\infty$ | $H\ge(1+\Gamma_\varepsilon)n\log_2(1/\varepsilon)-o(n)$ | 本仓库：canonical fixed-$\varepsilon$ replacement-cover theorem | 一般、无条件；每个固定 $\varepsilon\in(0,1)$，允许 arbitrary history dependence |
 | ordinary 模型，$u/n^2\to\infty$，且支持确定的 $f(n)/n\to\infty$ 操作 horizon | $H\ge C_{\mathrm{AP}}n-o(n)$，其中 $C_{\mathrm{AP}}>1.607987002861718\ldots$ | 本仓库：continuous full-fiber all-pivot converse | 在所列强宇宙/时域量词内不假设 BSSI、monotonicity 等结构；$C_{\mathrm{AP}}$ 是完整 finite hierarchy 的严格极限，不是新挑选的有限 block 常数 |
 | ordinary 模型，$u/n^2\to\infty$ | $H\ge1.198n-o(n)$ | 本仓库：multicut prefix-union theorem | 一般、无条件；证明只用 fresh insertions，因此也适用于 incremental filters |
 | ordinary 模型，$u/n\to\infty$，再假设 BSSI | $H\ge1.434406361243753\ldots n-o(n)$ | 本仓库 | 条件定理；尚未证明所有低空间 ordinary filters 都满足 BSSI |
@@ -110,7 +163,8 @@ multiset 的高效动态熵编码上界，但没有给出 constant-error arbitra
 ## 不是当前定理的数字
 
 - $1.13$ 是 Lovett--Porat 文中的 computer-search remark，不是已认证定理。
-- 原始模型的新常数可严格取 $2^{-48}$；这是解析证明中的保守 witness，不是优化值。
+- $2^{-20}$ 与 $2^{-48}$ 都只是早期 proof witnesses，已经被统一的
+  $\Gamma_\varepsilon$ 定理取代；它们不再作为当前下界陈述。
 - $C_{\mathrm{AP}}>1.607987\ldots$ 现在是 $u/n^2\to\infty$ 且
   $f(n)/n\to\infty$ 下的最强 all-pivot 定理；它仍不是原始
   $u/n\to\infty$ 条件下的下界。
@@ -168,8 +222,11 @@ canonical-state 假设，也没有使用 growing-depth tree。
 - [Finite lifting closure audit](./docs/ALL_PIVOT_16079_CLOSURE_AUDIT_2026_08_16.md)
 
 强宇宙条件已经通过 simultaneous replacement-cover width theorem 降到原始的
-$u/n\to\infty$，但目前只得到显式增益 $2^{-48}$，还没有接近
-$C_{\mathrm{AP}}$。新证明不再要求一个 hard-union witness 同时避开全部 suffix；它对
+$u/n\to\infty$。当前的
+[canonical fixed-$\varepsilon$ theorem](./docs/CANONICAL_FIXED_EPSILON_REPLACEMENT_COVER_2026_08_18.md)
+进一步去掉了 dyadic witness、任意 good-mass 门槛、线性 reservoir 松弛和重复 tolerance
+损失，但还没有接近 $C_{\mathrm{AP}}$。新证明不再要求一个 hard-union witness
+同时避开全部 suffix；它对
 每个 replacement branch 分别做 posterior pruning，并用一次 KL chain rule 统一收费。
 这正是消除旧 $n^2/u$ collision 门槛的关键。
 
@@ -205,8 +262,9 @@ density 的唯一 regular-variation 指数 $1$ 与不可消除的 $v\log v$ boun
 本项目不会把增加到 $20$ blocks、$50$ blocks 的纯数值爬升当作突破。下一步真正需要
 的是以下任一项：
 
-1. 显著改进 natural-universe theorem 当前保守的 $2^{-48}$，并尽量
-   向 $C_{\mathrm{AP}}$ 靠近；
+1. 超越当前 canonical replacement-cover balance，并尽量向 $C_{\mathrm{AP}}$ 靠近。
+   下一次改进必须加强 posterior replacement width 或改变 hard transition，而不是再挑选
+   一个数值 witness；
 2. 给出 matching lower/upper bound，从而确定某个明确模型的最优一阶常数；
 3. 证明 all-active regularity 和 matching adjoint potential，从而解析识别
    $C_{\mathrm{AP}}$；
